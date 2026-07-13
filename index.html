@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A quiet, considered portfolio for multidisciplinary design work." />
+    <title>HOU — Selected Works</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="返回首页">HOU<span>®</span></a>
+      <div class="header-note">Independent designer<br />Based in Shanghai</div>
+      <button class="add-button" id="openEditor" type="button"><span>＋</span> Add project</button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="pageTitle">
+        <p class="eyebrow">Selected works · 2022—2026</p>
+        <h1 id="pageTitle">Designing objects,<br />systems &amp; <em>experiences.</em></h1>
+        <div class="hero-meta">
+          <p>在克制与细节之间，寻找更自然的<br />人与产品、空间和信息的关系。</p>
+          <span class="scroll-hint">Scroll to explore <i>↓</i></span>
+        </div>
+      </section>
+
+      <nav class="category-nav" aria-label="作品分类">
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-category="ux" role="tab" aria-selected="true">UX Design</button>
+          <button class="tab" data-category="industrial" role="tab" aria-selected="false">Industrial Design</button>
+          <button class="tab" data-category="graphic" role="tab" aria-selected="false">Graphic Design</button>
+        </div>
+      </nav>
+
+      <section class="works" aria-live="polite">
+        <div class="works-heading">
+          <p id="sectionLabel">UX Design</p>
+          <p><span id="projectCount">04</span> projects</p>
+        </div>
+        <div class="project-grid" id="projectGrid"></div>
+        <div class="empty-state" id="emptyState" hidden>
+          <p>No projects here yet.</p>
+          <button type="button" id="emptyAdd">Add the first project</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Available for selected collaborations.</p>
+      <a href="mailto:hello@example.com">hello@example.com ↗</a>
+      <p>© <span id="year"></span> HOU STUDIO</p>
+    </footer>
+
+    <dialog class="editor" id="editor">
+      <form id="projectForm" method="dialog">
+        <div class="editor-head">
+          <div><p class="eyebrow">New work</p><h2>Add a project</h2></div>
+          <button class="close-button" id="closeEditor" type="button" aria-label="关闭">×</button>
+        </div>
+        <div class="field-row">
+          <label>Title<input name="title" required maxlength="60" placeholder="Project name" /></label>
+          <label>Year<input name="year" required inputmode="numeric" maxlength="4" value="2026" /></label>
+        </div>
+        <label>Category
+          <select name="category" required>
+            <option value="ux">UX Design</option>
+            <option value="industrial">Industrial Design</option>
+            <option value="graphic">Graphic Design</option>
+          </select>
+        </label>
+        <label>Description<textarea name="description" required maxlength="240" rows="4" placeholder="Briefly describe your project..."></textarea></label>
+        <label class="file-field">Cover image <span>JPG, PNG or WEBP · Max 4 MB</span><input id="coverInput" name="cover" type="file" accept="image/jpeg,image/png,image/webp" required /><b id="coverName">Choose an image ＋</b></label>
+        <label class="file-field">Attachment <span>Optional · Max 5 MB</span><input id="attachmentInput" name="attachment" type="file" /><b id="attachmentName">Choose a file ＋</b></label>
+        <p class="form-error" id="formError" role="alert"></p>
+        <button class="submit-button" type="submit">Publish project <span>→</span></button>
+      </form>
+    </dialog>
+
+    <template id="projectTemplate">
+      <article class="project-card">
+        <div class="project-image">
+          <img alt="" />
+          <span class="project-index"></span>
+          <div class="card-actions">
+            <a class="attachment" hidden>Attachment ↓</a>
+            <button class="delete-project" type="button" hidden>Delete</button>
+          </div>
+        </div>
+        <div class="project-info">
+          <div><h2></h2><p class="project-description"></p></div>
+          <p class="project-year"></p>
+        </div>
+      </article>
+    </template>
+    <script src="app.js"></script>
+  </body>
+</html>
