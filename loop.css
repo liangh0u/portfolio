@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: #fff;
+}
+
+.case-page {
+  background: #fff;
+  font-family: "DM Sans", "Noto Sans SC", sans-serif;
+}
+
+.case-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 58px;
+  background: rgba(243, 241, 235, 0.78);
+  border-color: rgba(0, 0, 0, 0.08);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.case-nav {
+  justify-self: center;
+  display: flex;
+  gap: 30px;
+}
+
+.case-nav a {
+  color: var(--muted);
+  font-size: 10px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.case-nav a:hover {
+  color: var(--ink);
+}
+
+.back-link {
+  justify-self: end;
+  font-size: 11px;
+  text-decoration: none;
+}
+
+main {
+  padding-top: 58px;
+}
+
+main > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  scroll-margin-top: 58px;
+}
+
+main > img + img {
+  border-top: 32px solid #fff;
+}
+
+.attachment-section {
+  min-height: 310px;
+  padding: 64px 4vw;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  border-top: 32px solid #fff;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.attachment-section p {
+  margin: 0 0 13px;
+  color: #8b8982;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.attachment-section h1 {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 58px);
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+}
+
+.attachment-section a {
+  width: min(360px, 100%);
+  padding: 17px 18px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #5d5b56;
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.2s, background 0.2s;
+}
+
+.attachment-section a:hover {
+  color: var(--ink);
+  background: var(--paper);
+}
+
+@media (max-width: 700px) {
+  .case-nav {
+    display: none;
+  }
+
+  main > img + img,
+  .attachment-section {
+    border-top-width: 12px;
+  }
+
+  .attachment-section {
+    min-height: 300px;
+    padding: 48px 5vw;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

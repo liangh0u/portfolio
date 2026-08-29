@@ -10,73 +10,167 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="home-page">
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="返回首页">HOU<span>®</span></a>
-      <div class="header-note">Independent designer<br />Based in Shanghai</div>
-      <button class="add-button" id="openEditor" type="button"><span>＋</span> Add project</button>
+      <button class="identity-button" id="openAbout" type="button" aria-haspopup="dialog">
+        <span class="brand">HOU<i>®</i></span>
+        <span class="identity-caption">About me</span>
+      </button>
+      <nav class="header-sections" aria-label="首页作品导航">
+        <a href="#research"><span class="nav-cn">设计研究</span><span class="nav-en">Design Research</span></a>
+        <a href="#practice"><span class="nav-cn">设计实践</span><span class="nav-en">Design Practice</span></a>
+      </nav>
+      <a class="contact-link" href="#contact">Contact me</a>
     </header>
 
     <main id="top">
-      <section class="hero" aria-labelledby="pageTitle">
-        <p class="eyebrow">Selected works · 2022—2026</p>
-        <h1 id="pageTitle">Designing objects,<br />systems &amp; <em>experiences.</em></h1>
-        <div class="hero-meta">
-          <p>在克制与细节之间，寻找更自然的<br />人与产品、空间和信息的关系。</p>
-          <span class="scroll-hint">Scroll to explore <i>↓</i></span>
+      <section class="interaction-zone" aria-label="HOU 像素奔跑动画">
+        <div class="pixel-stage" id="pixelStage">
+          <div class="escape-background" aria-hidden="true"></div>
+          <img class="escape-title" src="assets/interaction/title/welcome-title-yellow-blue.png" alt="Welcome to my website">
+          <aside class="pixel-scoreboard" aria-label="Achievement scoreboard">
+            <section>
+              <h2>Awards</h2>
+              <ul>
+                <li><img src="assets/interaction/icons/award-red-dot.png" alt="Red Dot"><b>4</b></li>
+                <li><img src="assets/interaction/icons/award-if.png" alt="iF"><b>3</b></li>
+                <li><img src="assets/interaction/icons/award-idea.png" alt="IDEA"><b>2</b></li>
+                <li><img src="assets/interaction/icons/award-adesign.png" alt="A' Design"><b>3</b></li>
+              </ul>
+            </section>
+            <section>
+              <h2>Publication</h2>
+              <ul>
+                <li><img src="assets/interaction/icons/publication-design-studies.png" alt="Design Studies"><b>1</b></li>
+              </ul>
+            </section>
+          </aside>
+          <div class="winged-award winged-red-dot" aria-hidden="true"><img src="assets/interaction/icons/award-red-dot.png" alt=""></div>
+          <div class="winged-award winged-if" aria-hidden="true"><img src="assets/interaction/icons/award-if.png" alt=""></div>
+          <div class="escape-target escape-chi" aria-label="Running CHI"></div>
+          <div class="escape-target escape-uist" aria-label="Running UIST"></div>
+          <div class="escape-target escape-dis" aria-label="Running DIS">
+            <span>DIS</span><i aria-hidden="true"></i><i aria-hidden="true"></i>
+          </div>
+
+          <div class="pixel-player" id="pixelPlayer" aria-label="Running pixel character"></div>
+          <div class="pixel-move-hint" aria-label="Use A and D or the left and right arrow keys to move">
+            <span>Move</span>
+            <div><kbd>A</kbd><kbd>←</kbd><kbd>D</kbd><kbd>→</kbd></div>
+          </div>
         </div>
       </section>
 
-      <nav class="category-nav" aria-label="作品分类">
-        <div class="tabs" role="tablist">
-          <button class="tab active" data-category="ux" role="tab" aria-selected="true">UX Design</button>
-          <button class="tab" data-category="industrial" role="tab" aria-selected="false">Industrial Design</button>
-          <button class="tab" data-category="graphic" role="tab" aria-selected="false">Graphic Design</button>
-        </div>
-      </nav>
+      <section class="profile-zone" aria-labelledby="profileTitle">
+        <div class="profile-details">
+          <section class="profile-group" aria-labelledby="educationTitle">
+            <h2 id="educationTitle">Education</h2>
+            <ol class="education-list">
+              <li><time>2019—2023</time><div><strong>大连民族大学</strong><span>工业设计</span></div></li>
+              <li><time>2023—2026</time><div><strong>浙江大学</strong><span>智能设计</span></div></li>
+            </ol>
+          </section>
 
-      <section class="works" aria-live="polite">
-        <div class="works-heading">
-          <p id="sectionLabel">UX Design</p>
-          <p><span id="projectCount">04</span> projects</p>
+          <section class="profile-group" aria-labelledby="hobbyTitle">
+            <h2 id="hobbyTitle">Hobby</h2>
+            <ul class="profile-tags"><li>做饭</li><li>瓦洛兰特</li><li>旅行</li><li>阅读</li><li>游泳</li></ul>
+          </section>
+
+          <section class="profile-group skills-group" aria-labelledby="skillsTitle">
+            <h2 id="skillsTitle">Skills</h2>
+            <dl class="skill-list">
+              <div><dt>三维与渲染</dt><dd>Rhino · KeyShot · Blender</dd></div>
+              <div><dt>交互与开发</dt><dd>Figma · Unity · Vibe Coding</dd></div>
+              <div><dt>平面与设计</dt><dd>Photoshop · Illustrator</dd></div>
+              <div><dt>硬件原型</dt><dd>Arduino</dd></div>
+            </dl>
+          </section>
+        </div>
+
+        <figure class="profile-photo" aria-label="个人照片预留位置">
+          <span>Portrait<br>photo</span>
+        </figure>
+
+        <div class="profile-intro">
+          <p class="profile-kicker">About me / 个人简介</p>
+          <blockquote id="profileTitle">
+            <p>找到一片不要浪费自己创造力和潜力的土地，在抵达之前，如水一般顺势而行，不要改变最终的流向。</p>
+            <p lang="en">Find a place where your creativity and potential can flourish. Until you arrive, be like water—flow with the current, but never lose your direction.</p>
+          </blockquote>
+        </div>
+      </section>
+
+      <div class="works-intro"><p>My Works</p><span>Selected projects</span></div>
+      <section class="hero-carousel" aria-label="精选项目轮播">
+        <div class="carousel-viewport" id="carouselViewport">
+          <article class="carousel-slide slide-one active" aria-hidden="false">
+            <div class="slide-placeholder"><img src="设计实践/工业设计/LOOP/assets/cover-restored.png" alt="Loop personal AI companion"></div>
+            <div class="slide-caption"><p>Industrial design / 2024</p><h1>Loop</h1></div>
+          </article>
+          <article class="carousel-slide slide-two" aria-hidden="true">
+            <div class="slide-placeholder"><img src="设计实践/工业设计/NEXT sealer/assets/cover.png" alt="NEXT Sealer desktop engraving machine"></div>
+            <div class="slide-caption"><p>Industrial design / 2024</p><h1>NEXT Sealer</h1></div>
+          </article>
+          <article class="carousel-slide slide-three" aria-hidden="true">
+            <div class="slide-placeholder"><img src="设计实践/工业设计/Storyteller/assets/cover-restored.png" alt="Storyteller listening companion"></div>
+            <div class="slide-caption"><p>Industrial design / 2025</p><h1>Storyteller</h1></div>
+          </article>
+        </div>
+        <div class="carousel-controls">
+          <div class="carousel-dots" aria-label="选择轮播图片">
+            <button class="carousel-dot active" type="button" data-slide="0" aria-label="第 1 张" aria-current="true"></button>
+            <button class="carousel-dot" type="button" data-slide="1" aria-label="第 2 张"></button>
+            <button class="carousel-dot" type="button" data-slide="2" aria-label="第 3 张"></button>
+          </div>
+          <div class="carousel-arrows">
+            <button id="previousSlide" type="button" aria-label="上一张"><img src="assets/icons/chevron-right.svg" alt=""></button>
+            <button id="nextSlide" type="button" aria-label="下一张"><img src="assets/icons/chevron-right.svg" alt=""></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="works portfolio-section" id="research" aria-live="polite">
+        <div class="section-title-row">
+          <div><p>Design Research</p><h2>设计研究</h2></div>
+          <ul class="filter-list" id="researchFilters" aria-label="设计研究筛选">
+            <li><button class="filter-button active" type="button" data-filter="all">全部</button></li>
+            <li><button class="filter-button" type="button" data-filter="tools">设计工具</button></li>
+            <li><button class="filter-button" type="button" data-filter="xr">XR</button></li>
+          </ul>
         </div>
         <div class="project-grid" id="projectGrid"></div>
-        <div class="empty-state" id="emptyState" hidden>
-          <p>No projects here yet.</p>
-          <button type="button" id="emptyAdd">Add the first project</button>
+        <button class="section-more" id="researchMore" type="button"><span>更多研究项目</span><i aria-hidden="true"><img src="assets/icons/chevron-down.svg" alt=""></i></button>
+      </section>
+
+      <section class="practice-view portfolio-section" id="practice" aria-live="polite">
+        <div class="section-title-row">
+          <div><p>Design Practice</p><h2>设计实践</h2></div>
+          <ul class="filter-list" id="practiceFilters" aria-label="设计实践筛选">
+            <li><button class="filter-button active" type="button" data-filter="all">全部</button></li>
+            <li><button class="filter-button" type="button" data-filter="industrial">工业设计</button></li>
+            <li><button class="filter-button" type="button" data-filter="ux">交互设计</button></li>
+            <li><button class="filter-button" type="button" data-filter="graphic">平面设计</button></li>
+          </ul>
         </div>
+        <div class="practice-grid" id="practiceGrid"></div>
       </section>
     </main>
 
-    <footer>
+    <footer id="contact">
       <p>Available for selected collaborations.</p>
-      <a href="mailto:hello@example.com">hello@example.com ↗</a>
+      <a class="icon-link" href="mailto:hello@example.com">hello@example.com <img src="assets/icons/arrow-up-right.svg" alt=""></a>
       <p>© <span id="year"></span> HOU STUDIO</p>
     </footer>
 
-    <dialog class="editor" id="editor">
-      <form id="projectForm" method="dialog">
-        <div class="editor-head">
-          <div><p class="eyebrow">New work</p><h2>Add a project</h2></div>
-          <button class="close-button" id="closeEditor" type="button" aria-label="关闭">×</button>
+    <dialog class="about-dialog" id="aboutDialog">
+      <div class="about-inner">
+        <div class="about-head"><p>About me</p><button id="closeAbout" type="button" aria-label="关闭介绍"><img src="assets/icons/x.svg" alt=""></button></div>
+        <div class="about-content">
+          <h2>HOU</h2>
+          <div><p>一名关注人与产品、空间和信息关系的独立设计师。</p><p>我的工作横跨设计研究、体验设计与工业设计，在观察、原型和细节之间寻找清晰而自然的解决方案。</p></div>
         </div>
-        <div class="field-row">
-          <label>Title<input name="title" required maxlength="60" placeholder="Project name" /></label>
-          <label>Year<input name="year" required inputmode="numeric" maxlength="4" value="2026" /></label>
-        </div>
-        <label>Category
-          <select name="category" required>
-            <option value="ux">UX Design</option>
-            <option value="industrial">Industrial Design</option>
-            <option value="graphic">Graphic Design</option>
-          </select>
-        </label>
-        <label>Description<textarea name="description" required maxlength="240" rows="4" placeholder="Briefly describe your project..."></textarea></label>
-        <label class="file-field">Cover image <span>JPG, PNG or WEBP · Max 4 MB</span><input id="coverInput" name="cover" type="file" accept="image/jpeg,image/png,image/webp" required /><b id="coverName">Choose an image ＋</b></label>
-        <label class="file-field">Attachment <span>Optional · Max 5 MB</span><input id="attachmentInput" name="attachment" type="file" /><b id="attachmentName">Choose a file ＋</b></label>
-        <p class="form-error" id="formError" role="alert"></p>
-        <button class="submit-button" type="submit">Publish project <span>→</span></button>
-      </form>
+        <p class="about-meta">Independent designer · Based in Shanghai</p>
+      </div>
     </dialog>
 
     <template id="projectTemplate">

@@ -1,3 +1,10 @@
 .DS_Store
 Thumbs.db
 *.log
+assets/project-a-source/
+assets/next-seal-extra-source/
+assets/fonts/glow-book.otf
+assets/fonts/glow-medium.otf
+assets/fonts/glow-extrabold.otf
+assets/fonts/glow-heavy.otf
+tmp/

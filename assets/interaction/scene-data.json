@@ -1,0 +1,13 @@
+{
+  "achievements": [
+    { "id": "red-dot", "label": "Red Dot", "count": 4, "icon": "icons/award-red-dot.png" },
+    { "id": "if", "label": "iF", "count": 3, "icon": "icons/award-if.png" },
+    { "id": "idea", "label": "IDEA", "count": 2, "icon": "icons/award-idea.png" },
+    { "id": "adesign", "label": "A'Design", "count": 3, "icon": "icons/award-adesign.png" }
+  ],
+  "publications": [
+    { "id": "chi", "label": "CHI", "count": 0, "behavior": "flying", "icon": "icons/publication-chi.png" },
+    { "id": "uist", "label": "UIST", "count": 0, "behavior": "flying", "icon": "icons/publication-uist.png" },
+    { "id": "design-studies", "label": "Design Studies", "count": 1, "behavior": "score", "icon": "icons/publication-design-studies.png" }
+  ]
+}
