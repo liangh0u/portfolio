@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="NEXT Seal — AI-powered seal design and fabrication platform." />
+    <title>NEXT Seal — HOU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="project.css" />
+  </head>
+  <body class="case-page">
+    <header class="site-header case-header">
+      <a class="brand" href="index.html">HOU<span>®</span></a>
+      <nav class="case-nav" aria-label="项目导航"><a href="#overview">Overview</a><a href="#experience">Experience</a><a href="#outcome">Outcome</a></nav>
+      <a class="back-link" href="index.html">All works</a>
+    </header>
+
+    <main>
+      <section class="case-intro" id="overview">
+        <div><p class="eyebrow">UX / UI · AI × Traditional craft</p><h1>NEXT Seal</h1></div>
+        <div class="case-summary">
+          <p class="case-lede">AI 篆面设计与篆石打印平台</p>
+          <p>NEXT Seal 是一套结合 AI 篆面生成与篆石打印的软硬件一体化平台。它将专业、复杂的篆刻流程转化为普通用户也能轻松参与的个性化体验。</p>
+        </div>
+      </section>
+
+      <figure class="case-cover"><img src="assets/next-seal/cover.png" alt="NEXT Seal mobile interface displayed in hand" /></figure>
+
+      <section class="case-meta" aria-label="项目信息">
+        <div><span>Role</span><p>UI Design</p></div>
+        <div><span>Duration</span><p>6 months</p></div>
+        <div><span>Completed</span><p>November 2023</p></div>
+        <div><span>Tools</span><p>Figma</p></div>
+      </section>
+
+      <section class="case-copy" id="experience">
+        <p class="section-no">01 / Context</p>
+        <div><h2>项目背景与设计目标</h2><p>传统篆刻面临资料分散、学习门槛高、手工制作周期长等问题。项目通过智能篆字生成、篆印交互设计与打印硬件，将从构思到成品的路径连接起来，让篆刻从少数人的专业技艺变成大众可体验、可创造的文化媒介。</p></div>
+      </section>
+
+      <section class="research-story" aria-label="用户研究">
+        <div class="research-title reveal"><p class="section-no">Research insight</p><h2>传统篆刻的主要门槛</h2><p>调研归纳出的三个核心问题</p></div>
+        <div class="pain-grid">
+          <article class="pain-card reveal"><span>01</span><div class="pain-symbol">少</div><h3>资料少</h3><p>相比其他传统艺术教育，篆刻教育的传播途径十分匮乏，直接导致了解篆刻的人非常少。</p></article>
+          <article class="pain-card reveal"><span>02</span><div class="pain-symbol">难</div><h3>学习难</h3><p>学习依靠师徒口传身授，需要大量知识储备、技法练习与较高的古籍审美，通常需要至少三年。</p></article>
+          <article class="pain-card reveal"><span>03</span><div class="pain-symbol">慢</div><h3>雕刻慢</h3><p>制作一枚精良印章需要 5–12 天，人工定制产量受限，不利于篆刻文化的推广。</p></article>
+        </div>
+      </section>
+
+      <section class="audience-story" aria-label="目标用户分析">
+        <div class="audience-heading reveal"><p class="section-no">Target audience</p><h2>目标用户分析</h2><p>核心人群特征与使用需求</p></div>
+        <div class="audience-tabs" role="tablist">
+          <button type="button" class="audience-tab active" data-audience="culture">文化爱好者</button>
+          <button type="button" class="audience-tab" data-audience="gift">赠礼用户</button>
+        </div>
+        <div class="audience-panel" id="audiencePanel">
+          <div class="audience-visual"><span>Image placeholder</span></div>
+          <div class="audience-content">
+            <p class="audience-kicker" id="audienceTraits">喜欢传统文化 · 关注文化体验</p>
+            <h3 id="audienceTitle">真实，但不守旧。</h3>
+            <div class="needs-list" id="audienceNeeds"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="journey-story" aria-label="用户旅程">
+        <div class="journey-heading reveal"><p class="section-no">User journey</p><h2>用户旅程图</h2><p>从认知、探索、创作到交付与分享</p></div>
+        <div class="journey-nav" role="tablist" id="journeyNav"></div>
+        <article class="journey-panel" id="journeyPanel">
+          <div class="journey-stage"><span id="journeyIndex">01</span><p id="journeyName">认知阶段</p><div class="emotion" id="journeyEmotion">⌣</div></div>
+          <div class="journey-detail"><span>用户行为</span><p id="journeyBehavior"></p></div>
+          <div class="journey-detail"><span>接触点</span><p id="journeyTouchpoint"></p></div>
+          <div class="journey-detail pain"><span>痛点</span><p id="journeyPain"></p></div>
+          <div class="journey-detail opportunity"><span>设计机会</span><p id="journeyOpportunity"></p></div>
+        </article>
+      </section>
+
+      <section class="visual-system" aria-label="视觉设计系统">
+        <header class="system-heading reveal">
+          <div><p class="section-no">Visual design</p><h2>视觉设计系统</h2></div>
+          <p>篆刻传统色彩与现代数字界面的结合</p>
+        </header>
+        <div class="system-grid">
+          <article class="system-card type-card reveal">
+            <div class="system-label"><span>01</span><h3>Typography</h3></div>
+            <p class="system-note">实验室自研字体未来荧黑，基于小样本深度学习生成。</p>
+            <div class="type-specimen"><strong>未来荧黑</strong><span>Aa12345b789</span></div>
+            <div class="type-scale">
+              <div><b>30</b><span class="t30">主标题</span></div>
+              <div><b>20</b><span class="t20">次标题</span></div>
+              <div><b>16</b><span class="t16">正文</span></div>
+              <div><b>12</b><span class="t12">辅助</span></div>
+            </div>
+          </article>
+          <article class="system-card color-card reveal">
+            <div class="system-label"><span>02</span><h3>Colors</h3></div>
+            <p class="system-note">灵感来自毛边纸、印章、印泥与宣纸。柔和中性色区分信息层级，降低长时间阅读的视觉疲劳。</p>
+            <div class="swatches">
+              <div class="swatch primary"><b>Main</b><span>#C85739</span></div>
+              <div class="swatch vermilion"><b>Sub</b><span>#C85739</span></div>
+              <div class="swatch paper"><b>Paper</b><span>#F8F4EB</span></div>
+              <div class="swatch cream"><b>Light</b><span>#FFF5E7</span></div>
+              <div class="swatch charcoal"><b>Text</b><span>#303030</span></div>
+              <div class="swatch gray"><b>Gray</b><span>#666562</span></div>
+              <div class="swatch mist"><b>Muted</b><span>#898073</span></div>
+              <div class="swatch white"><b>White</b><span>#FDFDFD</span></div>
+            </div>
+          </article>
+          <article class="system-card asset-card reveal">
+            <div class="system-label"><span>03</span><h3>Logo &amp; Icons</h3></div>
+            <div class="logo-pair">
+              <div class="logo-sample light"><i>篆</i><span>Default</span></div>
+              <div class="logo-sample dark"><i>篆</i><span>Dark</span></div>
+            </div>
+            <p class="asset-caption">Interface icon set</p>
+            <div class="icon-set" aria-label="界面图标示例">
+              <span>⌂</span><span>↗</span><span>✎</span><span>⌕</span><span>♡</span><span>⌘</span>
+              <span>＋</span><span>−</span><span>✓</span><span>×</span><span>←</span><span>→</span>
+              <span>▱</span><span>□</span><span>▣</span><span>◉</span><span>⌁</span><span>◷</span>
+            </div>
+            <p class="logo-placeholder">正式 Logo 可在提供 SVG 或透明 PNG 后替换</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="case-copy">
+        <p class="section-no">02 / Experience</p>
+        <div><h2>核心功能与设计流程</h2><p>界面围绕文字印、肖形印和中英印三种核心模板展开。用户选择内容与风格后即可生成篆面，并在数字预览、个性调整和实体制作之间自然过渡。统一的朱砂红强调关键操作，同时延续篆刻材料的文化记忆。</p></div>
+      </section>
+
+      <section class="experience-lab" aria-label="NEXT Seal 交互体验演示">
+        <div class="experience-head">
+          <p class="section-no">Interactive walkthrough</p>
+          <h2>交互流程演示</h2>
+          <p class="section-description">选择印章类型，并通过滚动查看完整操作流程</p>
+          <div class="path-tabs" role="tablist">
+            <button class="path-tab active" data-path="text" type="button">文字印</button>
+            <button class="path-tab" data-path="portrait" type="button">肖形印</button>
+            <button class="path-tab" data-path="bilingual" type="button">中英印</button>
+          </div>
+        </div>
+        <div class="walkthrough">
+          <div class="phone-stage">
+            <div class="phone-shell">
+              <img class="phone-screen" id="phoneScreen" src="assets/next-seal/ui-home.png" alt="NEXT Seal app interface" />
+              <img class="phone-frame" src="assets/next-seal/phone-frame.png" alt="" aria-hidden="true" />
+            </div>
+            <p class="phone-counter"><span id="phoneStep">01</span> / <span id="phoneTotal">05</span></p>
+          </div>
+          <div class="walkthrough-steps" id="walkthroughSteps"></div>
+        </div>
+      </section>
+
+      <section class="commerce-case" aria-label="线上商城设计">
+        <header class="feature-heading reveal">
+          <div><p class="section-no">02.1 / Online store</p><h2>线上商城</h2></div>
+          <p>从印面设计延伸至印石和文化衍生品，让用户在同一条路径中完成选择、定制与购买。</p>
+        </header>
+        <div class="commerce-flow">
+          <article class="commerce-step reveal"><div class="screen-card"><img src="assets/next-seal/ui-store.png" alt="NEXT Seal 线上商城首页" loading="lazy" /></div><span>01 / Browse</span><h3>浏览文化商品</h3><p>按赠礼、日常生活等分类发现印章及文化衍生品。</p></article>
+          <article class="commerce-step reveal"><div class="screen-card"><img src="assets/next-seal/ui-product.png" alt="NEXT Seal 商品详情" loading="lazy" /></div><span>02 / Customize</span><h3>关联个人设计</h3><p>在商品详情中直接调用已经生成的印面，形成专属定制。</p></article>
+          <article class="commerce-step reveal"><div class="screen-card"><img src="assets/next-seal/ui-stone.png" alt="NEXT Seal 印石选择" loading="lazy" /></div><span>03 / Material</span><h3>选择材质细节</h3><p>从印石材质、色彩到绳结逐级预览并确认实体效果。</p></article>
+          <article class="commerce-step reveal"><div class="screen-card"><img src="assets/next-seal/ui-order.png" alt="NEXT Seal 订单确认" loading="lazy" /></div><span>04 / Order</span><h3>确认定制订单</h3><p>汇总印面、石料、规格和配送信息，减少复杂定制的不确定性。</p></article>
+        </div>
+      </section>
+
+      <section class="offline-case" aria-label="线下自助篆刻服务">
+        <header class="feature-heading reveal">
+          <div><p class="section-no">02.2 / Offline service</p><h2>线下自助篆刻</h2></div>
+          <p>通过附近设备导航、现场配置与实时进度反馈，把数字印面转化为可触摸的实体印章。</p>
+        </header>
+        <div class="hardware-stage reveal">
+          <div class="hardware-copy"><span>Hardware product</span><h3>NEXT Seal<br />智能篆刻机</h3><p>封闭式桌面设备整合定位、夹持与自动雕刻模块，适用于文化馆、校园和商业体验空间。</p><dl><div><dt>Service</dt><dd>Self-service engraving</dd></div><div><dt>Output</dt><dd>Personalized seal</dd></div><div><dt>Status</dt><dd>Real-time progress</dd></div></dl></div>
+          <figure><img src="assets/next-seal/hardware.png" alt="NEXT Seal 智能篆刻硬件产品" loading="lazy" /></figure>
+        </div>
+        <div class="offline-demo">
+          <div class="offline-phone">
+            <div class="device-screen"><img id="offlineScreen" src="assets/next-seal/ui-map.png" alt="线下自助篆刻导航界面" /></div>
+          </div>
+          <div class="offline-steps" role="tablist">
+            <button class="offline-step active" type="button" data-image="ui-map.png" data-alt="线下设备导航界面"><span>01</span><div><b>找到附近设备</b><p>地图展示自助点位置、营业时间和设备状态。</p></div></button>
+            <button class="offline-step" type="button" data-image="ui-offline.png" data-alt="自助篆刻配置界面"><span>02</span><div><b>现场配置印石</b><p>上传印面并选择材质、颜色，现场确认制作参数。</p></div></button>
+            <button class="offline-step" type="button" data-image="ui-progress.png" data-alt="自助篆刻进度界面"><span>03</span><div><b>查看实时进度</b><p>明确显示当前工序、完成比例和剩余时间。</p></div></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="material-story" id="outcome">
+        <div><p class="section-no">03 / Service system</p><h2>软硬件一体化服务</h2></div>
+        <div class="seal-orbit" aria-hidden="true">
+          <img src="assets/next-seal/seal-text.png" alt="" />
+          <img src="assets/next-seal/seal-portrait.png" alt="" />
+          <img src="assets/next-seal/seal-bilingual.png" alt="" />
+        </div>
+        <p>从数字印面到材质、颜色与线下自助制作，NEXT Seal 将设计过程延伸到真实的触觉体验。</p>
+      </section>
+
+      <section class="case-end">
+        <p class="eyebrow">Full presentation</p>
+        <h2>完整项目演示</h2>
+        <a href="assets/next-seal/next-seal.pdf" target="_blank" rel="noopener">Open PDF <span>↗</span></a>
+      </section>
+    </main>
+    <footer><p>NEXT Seal · UX Design</p><a href="index.html">All projects ←</a><p>© 2026 HOU STUDIO</p></footer>
+    <script src="project.js"></script>
+  </body>
+</html>
