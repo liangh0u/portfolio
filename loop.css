@@ -13,55 +13,81 @@ body {
   font-family: "DM Sans", "Noto Sans SC", sans-serif;
 }
 
-.case-header {
-  position: fixed;
+.project-nav {
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 50;
-  height: 58px;
-  background: rgba(243, 241, 235, 0.78);
-  border-color: rgba(0, 0, 0, 0.08);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-}
-
-.case-nav {
-  justify-self: center;
+  width: 100%;
+  height: 68px;
+  padding: 0 12px;
   display: flex;
-  gap: 30px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d8d8d3;
+  background: #fff;
 }
 
-.case-nav a {
-  color: var(--muted);
-  font-size: 10px;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.case-nav a:hover {
+.home-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   color: var(--ink);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
-.back-link {
-  justify-self: end;
-  font-size: 11px;
+.home-link > span:first-child {
+  font-size: 20px;
+  font-weight: 300;
+  transition: transform 0.2s ease;
+}
+
+.home-link:hover > span:first-child {
+  transform: translateX(-4px);
+}
+
+.project-nav nav {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+}
+
+.project-nav nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  color: var(--ink);
+  font-size: 12px;
   text-decoration: none;
 }
 
-main {
-  padding-top: 58px;
+.project-nav nav small {
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-main > img {
+.case-wrap {
+  width: calc(100% - 24px);
+  max-width: 1026px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.case-wrap > img {
   display: block;
   width: 100%;
   height: auto;
-  scroll-margin-top: 58px;
+  scroll-margin-top: 88px;
 }
 
-main > img + img {
-  border-top: 32px solid #fff;
+.case-wrap > img + img {
+  margin-top: 20px;
 }
 
 .attachment-section {
@@ -71,7 +97,7 @@ main > img + img {
   align-items: flex-end;
   justify-content: space-between;
   gap: 40px;
-  border-top: 32px solid #fff;
+  margin-top: 20px;
   color: var(--paper);
   background: var(--ink);
 }
@@ -112,13 +138,30 @@ main > img + img {
 }
 
 @media (max-width: 700px) {
-  .case-nav {
+  .project-nav {
+    padding: 0;
+  }
+
+  .home-link span:last-child {
     display: none;
   }
 
-  main > img + img,
+  .project-nav nav {
+    gap: 15px;
+  }
+
+  .project-nav nav a {
+    align-items: flex-start;
+    font-size: 10px;
+  }
+
+  .project-nav nav small {
+    display: none;
+  }
+
+  .case-wrap > img + img,
   .attachment-section {
-    border-top-width: 12px;
+    margin-top: 12px;
   }
 
   .attachment-section {

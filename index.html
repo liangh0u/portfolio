@@ -12,18 +12,21 @@
   </head>
   <body class="home-page">
     <header class="site-header">
-      <button class="identity-button" id="openAbout" type="button" aria-haspopup="dialog">
-        <span class="brand">HOU<i>®</i></span>
-        <span class="identity-caption">About me</span>
-      </button>
-      <nav class="header-sections" aria-label="首页作品导航">
-        <a href="#research"><span class="nav-cn">设计研究</span><span class="nav-en">Design Research</span></a>
-        <a href="#practice"><span class="nav-cn">设计实践</span><span class="nav-en">Design Practice</span></a>
-      </nav>
-      <a class="contact-link" href="#contact">Contact me</a>
+      <div class="header-wrap">
+        <button class="identity-button" id="openAbout" type="button" aria-haspopup="dialog">
+          <span class="brand">HOU<i>®</i></span>
+          <span class="identity-caption">About me</span>
+        </button>
+        <nav class="header-sections" aria-label="首页作品导航">
+          <a href="#research"><span class="nav-cn">设计研究</span><span class="nav-en">Design Research</span></a>
+          <a href="#practice"><span class="nav-cn">设计实践</span><span class="nav-en">Design Practice</span></a>
+        </nav>
+        <a class="contact-link" href="#contact">Contact me</a>
+      </div>
     </header>
 
     <main id="top">
+      <div class="home-wrap">
       <section class="interaction-zone" aria-label="HOU 像素奔跑动画">
         <div class="pixel-stage" id="pixelStage">
           <div class="escape-background" aria-hidden="true"></div>
@@ -61,42 +64,65 @@
         </div>
       </section>
 
-      <section class="profile-zone" aria-labelledby="profileTitle">
+      <section class="profile-zone" aria-label="个人信息">
         <div class="profile-details">
           <section class="profile-group" aria-labelledby="educationTitle">
             <h2 id="educationTitle">Education</h2>
             <ol class="education-list">
-              <li><time>2019—2023</time><div><strong>大连民族大学</strong><span>工业设计</span></div></li>
-              <li><time>2023—2026</time><div><strong>浙江大学</strong><span>智能设计</span></div></li>
+              <li>
+                <div class="education-heading">
+                  <strong>工业设计工程</strong>
+                  <time>2023.09–2026.06</time>
+                </div>
+                <div>
+                  <span>浙江大学｜NEXTLab</span>
+                  <p>主要从事设计思维工具开发、XR 技术创新产品设计，以及非物质文化遗产的数字化与创新设计研究。</p>
+                </div>
+              </li>
+              <li>
+                <div class="education-heading">
+                  <strong>工业设计</strong>
+                  <time>2019.09–2023.06</time>
+                </div>
+                <div>
+                  <span>大连民族大学｜包海默实验室</span>
+                  <p>主要从事海洋非物质文化遗产产品设计、硬件产品原型开发，以及创新产品的概念与创意设计。</p>
+                </div>
+              </li>
             </ol>
           </section>
 
-          <section class="profile-group" aria-labelledby="hobbyTitle">
-            <h2 id="hobbyTitle">Hobby</h2>
-            <ul class="profile-tags"><li>做饭</li><li>瓦洛兰特</li><li>旅行</li><li>阅读</li><li>游泳</li></ul>
-          </section>
+          <div class="profile-secondary">
+            <section class="profile-group skills-group" aria-labelledby="skillsTitle">
+              <h2 id="skillsTitle">Skills</h2>
+              <dl class="skill-list">
+                <div><dt>三维与渲染</dt><dd>Rhino · KeyShot · Blender</dd></div>
+                <div><dt>交互与开发</dt><dd>Figma · Unity · Vibe Coding</dd></div>
+                <div><dt>平面与设计</dt><dd>Photoshop · Illustrator</dd></div>
+                <div><dt>硬件原型</dt><dd>Arduino</dd></div>
+                <div><dt>编程代码</dt><dd>C 语言 · Python · HTML · CSS</dd></div>
+              </dl>
+            </section>
 
-          <section class="profile-group skills-group" aria-labelledby="skillsTitle">
-            <h2 id="skillsTitle">Skills</h2>
-            <dl class="skill-list">
-              <div><dt>三维与渲染</dt><dd>Rhino · KeyShot · Blender</dd></div>
-              <div><dt>交互与开发</dt><dd>Figma · Unity · Vibe Coding</dd></div>
-              <div><dt>平面与设计</dt><dd>Photoshop · Illustrator</dd></div>
-              <div><dt>硬件原型</dt><dd>Arduino</dd></div>
-            </dl>
-          </section>
-        </div>
+            <section class="profile-group achievements-group" aria-labelledby="achievementsTitle">
+              <h2 id="achievementsTitle">Awards</h2>
+              <ul class="achievement-list">
+                <li><strong>Red Dot</strong><span>× 4</span></li>
+                <li><strong>iF Design Award</strong><span>× 3</span></li>
+                <li><strong>IDEA</strong><span>× 2</span></li>
+                <li><strong>A' Design Award</strong><span>× 3</span></li>
+                <li><strong>CCCC MAIC</strong><span>× 1</span></li>
+              </ul>
+            </section>
 
-        <figure class="profile-photo" aria-label="个人照片预留位置">
-          <span>Portrait<br>photo</span>
-        </figure>
-
-        <div class="profile-intro">
-          <p class="profile-kicker">About me / 个人简介</p>
-          <blockquote id="profileTitle">
-            <p>找到一片不要浪费自己创造力和潜力的土地，在抵达之前，如水一般顺势而行，不要改变最终的流向。</p>
-            <p lang="en">Find a place where your creativity and potential can flourish. Until you arrive, be like water—flow with the current, but never lose your direction.</p>
-          </blockquote>
+            <section class="profile-group publication-group" aria-labelledby="publicationTitle">
+              <h2 id="publicationTitle">Publication</h2>
+              <div class="publication-list">
+                <p><span>Design Studies</span><span>× 1</span></p>
+                <p><span>In progress</span></p>
+              </div>
+            </section>
+          </div>
         </div>
       </section>
 
@@ -154,12 +180,15 @@
         </div>
         <div class="practice-grid" id="practiceGrid"></div>
       </section>
+      </div>
     </main>
 
     <footer id="contact">
-      <p>Available for selected collaborations.</p>
-      <a class="icon-link" href="mailto:hello@example.com">hello@example.com <img src="assets/icons/arrow-up-right.svg" alt=""></a>
-      <p>© <span id="year"></span> HOU STUDIO</p>
+      <div class="footer-wrap">
+        <p>Available for selected collaborations.</p>
+        <a class="icon-link" href="mailto:hello@example.com">hello@example.com <img src="assets/icons/arrow-up-right.svg" alt=""></a>
+        <p>© <span id="year"></span> HOU STUDIO</p>
+      </div>
     </footer>
 
     <dialog class="about-dialog" id="aboutDialog">

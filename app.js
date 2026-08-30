@@ -5,14 +5,9 @@ const seedProjects = [
   { id:'next-sealer', category:'industrial', displayIndex:'03', title:'NEXT Sealer', year:'2024', description:'A compact desktop CNC engraving machine designed for accessible, precise seal fabrication.', image:'设计实践/工业设计/NEXT sealer/assets/cover.png', url:'project-next-sealer.html' },
   { id:'storyteller', category:'industrial', displayIndex:'04', title:'Storyteller', year:'2025', description:'A tactile storytelling companion designed to create a warmer, more intuitive listening experience.', image:'设计实践/工业设计/Storyteller/assets/cover-restored.png', url:'project-storyteller.html' },
   { id:'coastalbam-jar', category:'industrial', displayIndex:'05', title:'CoastalBam Jar', year:'2024', description:'A lightweight coastal serving vessel that combines a raised base with a removable woven strainer.', image:'设计实践/工业设计/CoastalBam Jar/assets/cover.png', url:'project-coastalbam-jar.html' },
-  { id:'vision-poetry', category:'ux', researchTag:'xr', title:'PoemCraft', year:'2026', description:'一款面向诗词爱好者的诗词体验系统，探索 XR 在传统诗词领域的更多可能性。', image:'设计研究/PoemCraft/assets/cover.png', url:'vision-poetry.html' },
-  { id:'next-seal', category:'ux', researchTag:'tools', title:'Heritage Sparkle', year:'2023', description:'一款面向新手设计师的设计卡牌工具，为非遗领域的产品创新提供脚手架支撑。', image:'设计实践/交互设计/篆刻/assets/cover.png', url:'project-next-seal.html' },
-  { id:'seed-1', category:'ux', researchTag:'tools', title:'Mori — Mindful Living', year:'2026', description:'A calmer digital companion for daily routines and personal wellbeing.', image:'https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85' },
-  { id:'seed-2', category:'ux', researchTag:'tools', title:'Transit, Reimagined', year:'2025', description:'Wayfinding and mobile experience for a more legible urban journey.', image:'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1400&q=85' },
-  { id:'seed-3', category:'ux', researchTag:'xr', title:'Kinfolk Archive', year:'2024', description:'An editorial archive built around discovery, restraint and reading.', image:'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?auto=format&fit=crop&w=1400&q=85' },
-  { id:'seed-4', category:'ux', researchTag:'tools', title:'Quiet Finance', year:'2023', description:'Making everyday financial decisions understandable and less stressful.', image:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85' },
-  { id:'seed-7', category:'graphic', title:'Field Notes', year:'2025', description:'Identity and publication system for an independent cultural journal.', image:'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1400&q=85' },
-  { id:'seed-8', category:'graphic', title:'Shiro / Brand System', year:'2023', description:'A quiet visual language for a contemporary Japanese tea house.', image:'https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=1400&q=85' }
+  { id:'PoemCraft', category:'ux', researchTag:'xr', practiceVisible:false, title:'PoemCraft', year:'2026', description:'一款面向诗词爱好者的诗词体验系统，探索 XR 在传统诗词领域的更多可能性。', image:'设计研究/PoemCraft/assets/cover.png', url:'index-peomcraft.html' },
+  { id:'heritage-spark', category:'ux', researchTag:'tools', title:'Heritage Spark', year:'2025', description:'一套帮助设计新手应对非物质文化遗产数字化复杂挑战的卡片式设计工具包。', image:'设计实践/交互设计/篆刻/assets/cover.png', url:'index-heritage-spark.html' },
+  { id:'pumpbtc', category:'graphic', title:'PumpBTC', year:'2025', description:'Web3 Bitcoin trading platform branding and visual design.', image:'设计实践/视觉设计/PumpBTC/assets/01.png', url:'project-pumpbtc.html' }
 ];
 
 let customProjects = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
@@ -105,7 +100,7 @@ function practiceCard(project) {
 }
 
 function renderPractice() {
-  const projects = [...customProjects, ...seedProjects].filter(project => practiceFilter === 'all' || project.category === practiceFilter);
+  const projects = [...customProjects, ...seedProjects].filter(project => project.practiceVisible !== false && (practiceFilter === 'all' || project.category === practiceFilter));
   practiceGrid.replaceChildren(...projects.map(practiceCard));
 }
 
