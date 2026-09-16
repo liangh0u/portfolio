@@ -11,21 +11,26 @@ const paths = {
     ['上传一张图片', '照片或插画都可以成为肖形印的创作原点。', 'ui-portrait-upload.png'],
     ['细化图像', '用阈值和局部涂抹控制画面的黑白关系。', 'ui-portrait-edit.png'],
     ['添加个性元素', '用贴纸与图形完善独属于自己的印面构图。', 'ui-portrait-sticker.png'],
-    ['选择实体载体', '挑选印石材质、色彩与配件，把图像变成真实作品。', 'ui-stone.png']
+    ['完成一方印', '保存数字印面，继续选择印石并进入实体制作。', 'ui-result.png']
   ],
   bilingual: [
     ['选择创作方式', '用中英印连接两种文字系统。', 'ui-home.png'],
     ['输入双语内容', '输入中文与英文，系统自动给出适合印面的初始组合。', 'ui-bilingual-input.png'],
     ['安排版式', '选择横排、竖排或组合布局，建立中英文的视觉秩序。', 'ui-bilingual-layout.png'],
     ['调整生成参数', '在传统篆意与现代可读性之间进行精细控制。', 'ui-bilingual-adjust.png'],
-    ['进入完整服务', '从线上商店到附近自助点，完成从屏幕到印石的旅程。', 'ui-store.png']
+    ['完成一方印', '保存数字印面，继续选择印石并进入实体制作。', 'ui-result.png']
   ]
 };
 
-const stepsEl = document.querySelector('#walkthroughSteps');
+const flowPanel = document.querySelector('#flowPanel');
 const screen = document.querySelector('#phoneScreen');
-const stepNo = document.querySelector('#phoneStep');
-let observer;
+const pathLabels = {
+  text:['文字印','Text Seal'],
+  portrait:['肖形印','Portrait Seal'],
+  bilingual:['中英印','Bilingual Seal']
+};
+let activePath = null;
+let activeStep = 0;
 
 function switchScreen(file, index) {
   if (screen.dataset.file === file) return;
@@ -35,67 +40,42 @@ function switchScreen(file, index) {
     screen.src = `assets/next-seal/${file}`;
     screen.dataset.file = file;
     screen.alt = `NEXT Seal app step ${index + 1}`;
-    stepNo.textContent = String(index + 1).padStart(2, '0');
     requestAnimationFrame(() => screen.classList.remove('switching'));
   };
   preload.src = `assets/next-seal/${file}`;
 }
 
-function renderPath(name) {
-  if (observer) observer.disconnect();
-  stepsEl.replaceChildren();
-  paths[name].forEach(([title, copy, image], index) => {
-    const section = document.createElement('article');
-    section.className = `walk-step${index === 0 ? ' active' : ''}`;
-    section.dataset.image = image;
-    section.dataset.index = index;
-    section.innerHTML = `<span>Step ${String(index + 1).padStart(2, '0')}</span><h3>${title}</h3><p>${copy}</p>`;
-    stepsEl.append(section);
-  });
-  document.querySelector('#phoneTotal').textContent = String(paths[name].length).padStart(2, '0');
-  switchScreen(paths[name][0][2], 0);
-  observer = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    document.querySelectorAll('.walk-step').forEach(el => el.classList.toggle('active', el === entry.target));
-    switchScreen(entry.target.dataset.image, Number(entry.target.dataset.index));
-  }), { rootMargin:'-38% 0px -42% 0px', threshold:0 });
-  document.querySelectorAll('.walk-step').forEach(step => observer.observe(step));
-}
-
-document.querySelectorAll('.path-tab').forEach(tab => tab.addEventListener('click', () => {
-  document.querySelectorAll('.path-tab').forEach(item => item.classList.toggle('active', item === tab));
-  renderPath(tab.dataset.path);
-  document.querySelector('.walkthrough').scrollIntoView({ behavior:'smooth', block:'start' });
-}));
-
-renderPath('text');
-
-const audiences = {
-  culture: {
-    traits:'喜欢传统文化 · 关注文化体验', title:'真实，但不守旧。',
-    needs:[['文化真实性','保留篆刻的正规规范，包括刀法、章法与篆字规范，避免过度娱乐化。'],['文化创新性','在尊重传统的同时，获得更多创新与创意的文化体验。']]
-  },
-  gift: {
-    traits:'寻找有品味的礼品 · 喜爱文化属性', title:'独特，也要简单。',
-    needs:[['应用低门槛','快速生成印章，无需投入额外的专业学习成本。'],['个性化定制','让每一枚印章都独一无二，拥有专属的纪念意义。'],['商品多样性','不只限于印章，也能延伸到丰富的文创与赠礼选择。']]
+function renderFlow() {
+  if (!activePath) {
+    flowPanel.innerHTML = `<div class="flow-copy"><span>Step 01</span><h3>选择创作方式</h3><p>选择一种印章类型，进入对应的创作流程。</p></div><div class="flow-choices">${Object.entries(pathLabels).map(([key,[cn,en]],index) => `<button type="button" data-choose="${key}"><span>0${index + 1}</span><b>${cn}</b><small>${en}</small><i>→</i></button>`).join('')}</div>`;
+    switchScreen('ui-home.png', 0);
+    return;
   }
-};
 
-function renderAudience(name) {
-  const data = audiences[name];
-  const panel = document.querySelector('#audiencePanel');
-  panel.classList.toggle('gift', name === 'gift');
-  document.querySelector('#audienceTraits').textContent = data.traits;
-  document.querySelector('#audienceTitle').textContent = data.title;
-  const list = document.querySelector('#audienceNeeds');
-  list.innerHTML = data.needs.map(([title,copy]) => `<div class="need-item"><b>${title}</b><p>${copy}</p></div>`).join('');
+  const [title, copy, image] = paths[activePath][activeStep];
+  flowPanel.innerHTML = `<div class="flow-copy"><span>Step ${String(activeStep + 1).padStart(2,'0')}</span><small>${pathLabels[activePath][0]} · ${pathLabels[activePath][1]}</small><h3>${title}</h3><p>${copy}</p></div><div class="flow-actions"><button type="button" data-action="previous"><span>←</span><b>上一步</b></button><button type="button" data-action="next" ${activeStep === paths[activePath].length - 1 ? 'disabled' : ''}><span>→</span><b>${activeStep === paths[activePath].length - 1 ? '流程完成' : '下一步'}</b></button></div><button class="flow-restart" type="button" data-action="restart">重新选择创作方式</button>`;
+  switchScreen(image, activeStep);
 }
 
-document.querySelectorAll('.audience-tab').forEach(tab => tab.addEventListener('click', () => {
-  document.querySelectorAll('.audience-tab').forEach(item => item.classList.toggle('active', item === tab));
-  renderAudience(tab.dataset.audience);
-}));
-renderAudience('culture');
+function transitionFlow(update) {
+  flowPanel.classList.add('is-changing');
+  window.setTimeout(() => {
+    update();
+    renderFlow();
+    requestAnimationFrame(() => flowPanel.classList.remove('is-changing'));
+  }, 180);
+}
+
+flowPanel.addEventListener('click', event => {
+  const button = event.target.closest('button');
+  if (!button || button.disabled) return;
+  if (button.dataset.choose) transitionFlow(() => { activePath = button.dataset.choose; activeStep = 1; });
+  if (button.dataset.action === 'previous') transitionFlow(() => { if (activeStep === 1) { activePath = null; activeStep = 0; } else activeStep -= 1; });
+  if (button.dataset.action === 'next') transitionFlow(() => { activeStep += 1; });
+  if (button.dataset.action === 'restart') transitionFlow(() => { activePath = null; activeStep = 0; });
+});
+
+renderFlow();
 
 const journey = [
   {name:'认知阶段',emotion:'⌣',behavior:'通过线下文化馆展览\n社交媒体广告首次接触',touch:'线下体验馆\n朋友圈广告',pain:'对篆刻文化陌生\n认为“传统＝复杂”',opportunity:'文化破冰：线下体验区设置“3分钟刻章”互动装置，直观展示零门槛；线上突出 AI 智能设计优势。'},
@@ -128,17 +108,3 @@ const revealObserver = new IntersectionObserver(entries => entries.forEach(entry
   if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); }
 }), { threshold:.15 });
 document.querySelectorAll('.reveal').forEach(element => revealObserver.observe(element));
-
-const offlineScreen = document.querySelector('#offlineScreen');
-document.querySelectorAll('.offline-step').forEach(button => button.addEventListener('click', () => {
-  if (button.classList.contains('active')) return;
-  document.querySelectorAll('.offline-step').forEach(item => item.classList.toggle('active', item === button));
-  offlineScreen.classList.add('switching');
-  const next = new Image();
-  next.onload = () => {
-    offlineScreen.src = `assets/next-seal/${button.dataset.image}`;
-    offlineScreen.alt = button.dataset.alt;
-    requestAnimationFrame(() => offlineScreen.classList.remove('switching'));
-  };
-  next.src = `assets/next-seal/${button.dataset.image}`;
-}));

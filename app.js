@@ -6,7 +6,8 @@ const seedProjects = [
   { id:'storyteller', category:'industrial', displayIndex:'04', title:'Storyteller', year:'2025', description:'A tactile storytelling companion designed to create a warmer, more intuitive listening experience.', image:'设计实践/工业设计/Storyteller/assets/cover-restored.png', url:'project-storyteller.html' },
   { id:'coastalbam-jar', category:'industrial', displayIndex:'05', title:'CoastalBam Jar', year:'2024', description:'A lightweight coastal serving vessel that combines a raised base with a removable woven strainer.', image:'设计实践/工业设计/CoastalBam Jar/assets/cover.png', url:'project-coastalbam-jar.html' },
   { id:'PoemCraft', category:'ux', researchTag:'xr', practiceVisible:false, title:'PoemCraft', year:'2026', description:'一款面向诗词爱好者的诗词体验系统，探索 XR 在传统诗词领域的更多可能性。', image:'设计研究/PoemCraft/assets/cover.png', url:'index-peomcraft.html' },
-  { id:'heritage-spark', category:'ux', researchTag:'tools', title:'Heritage Spark', year:'2025', description:'一套帮助设计新手应对非物质文化遗产数字化复杂挑战的卡片式设计工具包。', image:'设计实践/交互设计/篆刻/assets/cover.png', url:'index-heritage-spark.html' },
+  { id:'heritage-spark', category:'ux', researchTag:'tools', practiceVisible:false, title:'Heritage Spark', year:'2026', description:'一套帮助设计新手应对非物质文化遗产数字化复杂挑战的卡片式设计工具包。', image:'设计研究/Heritage Spark/assets/cover.png', url:'index-heritage-spark.html' },
+  { id:'next-seal', category:'ux', researchVisible:false, title:'NEXT Seal', year:'2023', description:'一套结合 AI 篆面生成与篆石打印的软硬件一体化交互平台。', image:'设计实践/交互设计/篆刻/assets/hero-image.jpg', url:'project-next-seal.html' },
   { id:'pumpbtc', category:'graphic', title:'PumpBTC', year:'2025', description:'Web3 Bitcoin trading platform branding and visual design.', image:'设计实践/视觉设计/PumpBTC/assets/01.png', url:'project-pumpbtc.html' }
 ];
 
@@ -50,7 +51,7 @@ function projectCard(project, index) {
 }
 
 function renderResearch() {
-  const projects = [...customProjects, ...seedProjects].filter(project => project.category === 'ux' && (researchFilter === 'all' || project.researchTag === researchFilter));
+  const projects = [...customProjects, ...seedProjects].filter(project => project.category === 'ux' && project.researchVisible !== false && (researchFilter === 'all' || project.researchTag === researchFilter));
   grid.replaceChildren(...projects.map(projectCard));
   document.querySelector('#research').classList.remove('expanded');
   document.querySelector('#researchMore').classList.remove('expanded');
@@ -138,6 +139,7 @@ function showSlide(index) {
     const active = slideIndex === activeSlide;
     slide.classList.toggle('active', active);
     slide.setAttribute('aria-hidden', String(!active));
+    slide.tabIndex = active ? 0 : -1;
   });
   dots.forEach((dot, dotIndex) => {
     const active = dotIndex === activeSlide;
@@ -156,11 +158,19 @@ document.querySelector('#previousSlide').addEventListener('click', () => { showS
 document.querySelector('#nextSlide').addEventListener('click', () => { showSlide(activeSlide + 1); restartCarousel(); });
 
 let touchStartX = 0;
+let suppressCarouselClick = false;
 const viewport = document.querySelector('#carouselViewport');
+viewport.addEventListener('click', event => {
+  if (!suppressCarouselClick) return;
+  event.preventDefault();
+  suppressCarouselClick = false;
+}, true);
 viewport.addEventListener('touchstart', event => { touchStartX = event.changedTouches[0].clientX; }, { passive:true });
 viewport.addEventListener('touchend', event => {
   const delta = event.changedTouches[0].clientX - touchStartX;
   if (Math.abs(delta) < 45) return;
+  suppressCarouselClick = true;
+  setTimeout(() => { suppressCarouselClick = false; }, 400);
   showSlide(activeSlide + (delta < 0 ? 1 : -1));
   restartCarousel();
 }, { passive:true });
