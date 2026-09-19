@@ -250,7 +250,7 @@
 .case-summary .summary-author { margin-bottom:24px; font-size:15px; font-weight:600; line-height:1.4; }
 .case-summary strong { font-weight:600; }
 .case-summary p + p { margin-top:20px; }
-.case-cover img { aspect-ratio:1026/563; object-fit:cover; }
+.case-cover img { aspect-ratio:1026/491; object-fit:cover; }
 .case-meta { padding:18px 0 54px; border-bottom:1px solid var(--ink); }
 .case-meta span,.section-no { font-size:10px; }
 .case-meta p { font-size:14px; line-height:1.5; }

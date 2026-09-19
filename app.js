@@ -5,10 +5,13 @@ const seedProjects = [
   { id:'next-sealer', category:'industrial', displayIndex:'03', title:'NEXT Sealer', year:'2024', description:'A compact desktop CNC engraving machine designed for accessible, precise seal fabrication.', image:'设计实践/工业设计/NEXT sealer/assets/cover.png', url:'project-next-sealer.html' },
   { id:'storyteller', category:'industrial', displayIndex:'04', title:'Storyteller', year:'2025', description:'A tactile storytelling companion designed to create a warmer, more intuitive listening experience.', image:'设计实践/工业设计/Storyteller/assets/cover-restored.png', url:'project-storyteller.html' },
   { id:'coastalbam-jar', category:'industrial', displayIndex:'05', title:'CoastalBam Jar', year:'2024', description:'A lightweight coastal serving vessel that combines a raised base with a removable woven strainer.', image:'设计实践/工业设计/CoastalBam Jar/assets/cover.png', url:'project-coastalbam-jar.html' },
+  { id:'silkworm-box', category:'industrial', displayIndex:'06', title:'Silkworm Box', year:'2022', description:'一款将传统养蚕文化与智能环境控制结合的儿童自然教育套件。', image:'设计实践/工业设计/Silkworm Box/assets/home-cover.png', url:'project-silkworm-box.html' },
+  { id:'rotating-suitcase', category:'industrial', displayIndex:'07', title:'Rotating Suitcase', year:'2022', description:'一款通过顶部旋转结构兼顾行李收纳、临时座椅与移动办公的多功能行李箱。', image:'设计实践/工业设计/Rotating Suitcase/assets/home-cover.png', url:'project-rotating-suitcase.html' },
   { id:'PoemCraft', category:'ux', researchTag:'xr', practiceVisible:false, title:'PoemCraft', year:'2026', description:'一款面向诗词爱好者的诗词体验系统，探索 XR 在传统诗词领域的更多可能性。', image:'设计研究/PoemCraft/assets/cover.png', url:'index-peomcraft.html' },
   { id:'heritage-spark', category:'ux', researchTag:'tools', practiceVisible:false, title:'Heritage Spark', year:'2026', description:'一套帮助设计新手应对非物质文化遗产数字化复杂挑战的卡片式设计工具包。', image:'设计研究/Heritage Spark/assets/cover.png', url:'index-heritage-spark.html' },
-  { id:'next-seal', category:'ux', researchVisible:false, title:'NEXT Seal', year:'2023', description:'一套结合 AI 篆面生成与篆石打印的软硬件一体化交互平台。', image:'设计实践/交互设计/篆刻/assets/hero-image.jpg', url:'project-next-seal.html' },
-  { id:'pumpbtc', category:'graphic', title:'PumpBTC', year:'2025', description:'Web3 Bitcoin trading platform branding and visual design.', image:'设计实践/视觉设计/PumpBTC/assets/01.png', url:'project-pumpbtc.html' }
+  { id:'next-seal', category:'ux', researchVisible:false, title:'NEXT Seal', year:'2023', description:'一套结合 AI 篆面生成与篆石打印的软硬件一体化交互平台。', image:'assets/next-seal/home-cover.png', url:'project-next-seal.html' },
+  { id:'pumpbtc', category:'graphic', title:'PumpBTC', year:'2025', description:'Web3 Bitcoin trading platform branding and visual design.', image:'设计实践/视觉设计/PumpBTC/assets/01.png', url:'project-pumpbtc.html' },
+  { id:'zju130', category:'graphic', title:'Zhejiang University 130th Anniversary', year:'2027', description:'A commemorative visual identity built from the numerals 1, 3, and 0 and a color palette inspired by Zhejiang University’s four seasons.', image:'设计实践/视觉设计/ZJU130/assets/cover.png', url:'project-zju130.html' }
 ];
 
 let customProjects = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
