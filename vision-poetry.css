@@ -31,13 +31,13 @@ a { color:inherit; }
 .media-placeholder p { margin:0; font-size:13px; font-weight:500; letter-spacing:0; }
 .hero-media,.video-placeholder,.landscape { width:100%; aspect-ratio:1026/611; }
 .hero-media { margin-top:0; display:block; aspect-ratio:1026/491; object-fit:cover; }
-.project-summary { padding:38px 0 18px; display:grid; grid-template-columns:minmax(220px,32%) 1fr; gap:38px; }
+.project-summary { padding:38px 0 18px; display:grid; grid-template-columns:minmax(0,300px) minmax(0,500px); align-items:stretch; justify-content:space-between; gap:38px; }
+.summary-heading { display:flex; flex-direction:column; }
 .summary-heading h1 { margin:0; font-family:"Roboto Condensed","DM Sans",sans-serif; font-size:36px; font-weight:400; line-height:1.1; letter-spacing:-.025em; }
 .summary-heading .summary-date { margin:12px 0 0; color:#4e4d48; font-size:14px; line-height:1.5; }
-.summary-content { min-width:0; }
-.summary-content p { margin:0; color:var(--ink); font-size:14px; line-height:1.72; }
+.summary-content { width:500px; max-width:100%; min-width:0; justify-self:end; }
+.summary-content p { margin:0; color:var(--ink); font-size:13px; line-height:1.72; }
 .summary-content p+p { margin-top:20px; }
-.summary-content .summary-author { margin-bottom:24px; font-size:15px; font-weight:600; line-height:1.4; }
 .summary-content strong { font-weight:inherit; }
 .content-copy { padding:20px 0 0; }
 .content-title { width:100%; margin:0 0 10px!important; color:var(--ink)!important; font-size:15px!important; font-weight:600; line-height:1.4!important; }
@@ -74,16 +74,16 @@ a { color:inherit; }
 .gesture-strip figcaption { padding-top:8px; display:flex; flex-direction:column; gap:2px; }
 .gesture-strip strong { font-size:10px; font-weight:500; line-height:1.4; }
 .gesture-strip span { color:var(--muted); font-size:8px; line-height:1.4; }
-.links-section { padding:0; }
-.link-list { border-top:1px solid var(--ink); }
-.link-item { padding:10px 0; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); }
-.award-entry { font-style:italic; }
-.link-list span { font-size:14px; }
-.link-list small { width:100px; display:inline-block; color:var(--muted); font-size:9px; letter-spacing:.14em; text-transform:uppercase; }
-.link-list b { font-size:14px; font-weight:300; }
+.project-recognition { width:300px; max-width:100%; margin-top:30px; }
+.recognition-group+.recognition-group { margin-top:30px; }
+.recognition-group h2 { margin:0 0 8px; font-size:13px; font-weight:600; line-height:1.35; }
+.recognition-group p { margin:0; font-size:13px; line-height:1.55; }
+.recognition-group a { color:#999; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; }
+.recognition-group a:hover { color:var(--ink); }
+.award-entry { font-style:normal; }
 .video-section { padding:64px 0 6vh; }
 .project-video { width:100%; aspect-ratio:16/9; display:block; object-fit:contain; background:#171715; }
-.video-copy { margin-top:30px; }
+.video-copy { margin:0 0 10px; padding-top:0; }
 .video-placeholder button { width:74px; height:74px; padding-left:6px; display:grid; place-items:center; border:1px solid var(--ink); border-radius:50%; color:var(--ink); background:rgba(255,255,255,.82); font-size:20px; }
 .video-placeholder p { position:absolute; bottom:48px; left:24px; font-size:20px; }
 .story { border-top:1px solid var(--ink); }
@@ -106,15 +106,15 @@ footer p { margin:0; }
   .section-shell { width:calc(100vw - 24px); }
   .hero { padding-top:20px; }
   .project-summary { padding:28px 0 12px; grid-template-columns:1fr; gap:22px; }
-  .summary-content p { font-size:14px; line-height:1.75; }
-  .summary-content .summary-author { margin-bottom:18px; font-size:15px; }
+  .project-recognition { margin-top:30px; }
+  .summary-content { max-width:none; }
+  .summary-content p { font-size:13px; line-height:1.75; }
   .xr-gallery { grid-template-columns:1fr; gap:20px; }
   .xr-detail-grid { grid-template-columns:1fr; gap:28px; }
   .gesture-heading { align-items:flex-start; flex-direction:column; gap:4px; }
   .gesture-strip { margin-right:-12px; padding-right:12px; display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x proximity; scrollbar-width:none; }
   .gesture-strip::-webkit-scrollbar { display:none; }
   .gesture-strip figure { flex:0 0 132px; scroll-snap-align:start; }
-  .link-list small { width:auto; display:block; margin-bottom:6px; }
   .download-panel { padding:36px 24px; grid-template-columns:1fr; align-items:start; gap:28px; }
   .download-copy h2 { font-size:28px; }
   footer { width:calc(100vw - 24px); grid-template-columns:1fr auto; gap:12px; }

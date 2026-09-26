@@ -1,17 +1,19 @@
 const STORAGE_KEY = 'hou-portfolio-projects-v1';
 
 const seedProjects = [
-  { id:'loop', category:'industrial', title:'Loop — Personal AI Companion', year:'2024', description:'A compact magnetic voice companion that gives personal AI a calm, ambient physical presence.', image:'设计实践/工业设计/LOOP/assets/cover-restored.png', url:'project-loop.html' },
-  { id:'next-sealer', category:'industrial', displayIndex:'03', title:'NEXT Sealer', year:'2024', description:'A compact desktop CNC engraving machine designed for accessible, precise seal fabrication.', image:'设计实践/工业设计/NEXT sealer/assets/cover.png', url:'project-next-sealer.html' },
-  { id:'storyteller', category:'industrial', displayIndex:'04', title:'Storyteller', year:'2025', description:'A tactile storytelling companion designed to create a warmer, more intuitive listening experience.', image:'设计实践/工业设计/Storyteller/assets/cover-restored.png', url:'project-storyteller.html' },
-  { id:'coastalbam-jar', category:'industrial', displayIndex:'05', title:'CoastalBam Jar', year:'2024', description:'A lightweight coastal serving vessel that combines a raised base with a removable woven strainer.', image:'设计实践/工业设计/CoastalBam Jar/assets/cover.png', url:'project-coastalbam-jar.html' },
-  { id:'silkworm-box', category:'industrial', displayIndex:'06', title:'Silkworm Box', year:'2022', description:'一款将传统养蚕文化与智能环境控制结合的儿童自然教育套件。', image:'设计实践/工业设计/Silkworm Box/assets/home-cover.png', url:'project-silkworm-box.html' },
-  { id:'rotating-suitcase', category:'industrial', displayIndex:'07', title:'Rotating Suitcase', year:'2022', description:'一款通过顶部旋转结构兼顾行李收纳、临时座椅与移动办公的多功能行李箱。', image:'设计实践/工业设计/Rotating Suitcase/assets/home-cover.png', url:'project-rotating-suitcase.html' },
-  { id:'PoemCraft', category:'ux', researchTag:'xr', practiceVisible:false, title:'PoemCraft', year:'2026', description:'一款面向诗词爱好者的诗词体验系统，探索 XR 在传统诗词领域的更多可能性。', image:'设计研究/PoemCraft/assets/cover.png', url:'index-peomcraft.html' },
-  { id:'heritage-spark', category:'ux', researchTag:'tools', practiceVisible:false, title:'Heritage Spark', year:'2026', description:'一套帮助设计新手应对非物质文化遗产数字化复杂挑战的卡片式设计工具包。', image:'设计研究/Heritage Spark/assets/cover.png', url:'index-heritage-spark.html' },
-  { id:'next-seal', category:'ux', researchVisible:false, title:'NEXT Seal', year:'2023', description:'一套结合 AI 篆面生成与篆石打印的软硬件一体化交互平台。', image:'assets/next-seal/home-cover.png', url:'project-next-seal.html' },
-  { id:'pumpbtc', category:'graphic', title:'PumpBTC', year:'2025', description:'Web3 Bitcoin trading platform branding and visual design.', image:'设计实践/视觉设计/PumpBTC/assets/01.png', url:'project-pumpbtc.html' },
-  { id:'zju130', category:'graphic', title:'Zhejiang University 130th Anniversary', year:'2027', description:'A commemorative visual identity built from the numerals 1, 3, and 0 and a color palette inspired by Zhejiang University’s four seasons.', image:'设计实践/视觉设计/ZJU130/assets/cover.png', url:'project-zju130.html' }
+  { id:'next-seal', category:'ux', researchVisible:false, title:'NEXT Seal', year:'2023', description:'AI-powered seal creation platform\nAI 智能篆刻创作平台', image:'assets/next-seal/home-cover.png', url:'project-next-seal.html', awards:[{ logo:'assets/icons/awards/red-dot.png', name:'Red Dot Award' },{ logo:'assets/icons/awards/adesign.png', name:"A' Design Award" }] },
+  { id:'next-sealer', category:'industrial', displayIndex:'03', title:'NEXT Sealer', year:'2024', description:'Intelligent seal engraving machine\n智能篆刻机', image:'设计实践/工业设计/NEXT sealer/assets/cover.png', url:'project-next-sealer.html', awards:[{ logo:'assets/icons/awards/red-dot.png', name:'Red Dot Award' },{ logo:'assets/icons/awards/adesign.png', name:"A' Design Award" }] },
+  { id:'bam3-creel', category:'industrial', title:'Bam³ Creel', year:'2023', description:'Modular bamboo fishing creel\n模块化竹编鱼篓', image:'assets/bam3-creel/detail-cover.png', url:'project-bam3-creel.html' },
+  { id:'silkworm-box', category:'industrial', displayIndex:'06', title:'Silkworm Box', year:'2022', description:'Smart sericulture learning kit\n智能养蚕自然教育套件', image:'设计实践/工业设计/Silkworm Box/assets/home-cover.png', url:'project-silkworm-box.html', awardLogo:'assets/icons/awards/red-dot.png', awardName:'Red Dot Award' },
+  { id:'rotating-suitcase', category:'industrial', displayIndex:'07', title:'Rotating Suitcase', year:'2022', description:'Transformable travel suitcase\n可变形多功能行李箱', image:'设计实践/工业设计/Rotating Suitcase/assets/home-cover.png', url:'project-rotating-suitcase.html', awardLogo:'assets/icons/awards/idea.png', awardName:'IDEA' },
+  { id:'coastalbam-jar', category:'industrial', displayIndex:'05', title:'CoastalBam Jar', year:'2024', description:'Contemporary bamboo-woven salt jar\n当代竹编盐罐', image:'设计实践/工业设计/CoastalBam Jar/assets/cover.png', url:'project-coastalbam-jar.html', awardLogo:'assets/icons/awards/red-dot.png', awardName:'Red Dot Award' },
+  { id:'storyteller', category:'industrial', displayIndex:'04', title:'Storyteller', year:'2025', description:'AI companion for life stories\n记录生命故事的 AI 陪伴机器人', image:'设计实践/工业设计/Storyteller/assets/cover-restored.png', url:'project-storyteller.html' },
+  { id:'oil-spill-collector', category:'industrial', title:'Deoiling Machine', year:'2021', description:'Offshore oil recovery system\n海上原油回收系统', image:'assets/oil-spill-collector/cover.png', url:'project-oil-spill-collector.html', awardLogo:'assets/icons/awards/if.png', awardName:'iF Design Award' },
+  { id:'pumpbtc', category:'graphic', title:'PumpBTC', year:'2025', description:'Bitcoin brand identity system\n比特币品牌视觉系统', image:'设计实践/视觉设计/PumpBTC/assets/01.png', url:'project-pumpbtc.html' },
+  { id:'zju130', category:'graphic', title:'Zhejiang University 130th Anniversary', year:'2027', description:'Anniversary visual identity\n周年纪念视觉识别系统', image:'设计实践/视觉设计/ZJU130/assets/cover.png', url:'project-zju130.html' },
+  { id:'loop', category:'industrial', title:'Loop', year:'2024', description:'Personal AI companion\n个性化 AI 陪伴机器人', image:'设计实践/工业设计/LOOP/assets/cover-restored.png', url:'project-loop.html' },
+  { id:'PoemCraft', category:'ux', researchTag:'xr', practiceVisible:false, title:'PoemCraft', year:'2026', description:'Constructive XR poetry learning\n建构式 XR 诗词学习体验', image:'设计研究/PoemCraft/assets/cover.png', url:'index-peomcraft.html', awardLogo:'assets/icons/awards/maic.png', awardName:'CCCC MAIC' },
+  { id:'heritage-spark', category:'ux', researchTag:'tools', practiceVisible:false, title:'Heritage Spark', year:'2026', description:'Card toolkit for digital heritage\n非遗数字化设计卡片工具包', image:'设计研究/Heritage Spark/assets/cover.png', url:'index-heritage-spark.html', awardLogo:'assets/icons/awards/adesign.png', awardName:"A' Design Award" },
 ];
 
 let customProjects = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
@@ -21,6 +23,18 @@ const template = document.querySelector('#projectTemplate');
 let researchFilter = 'all';
 let practiceFilter = 'all';
 
+function appendAwardLogos(title, project) {
+  const awards = project.awards || (project.awardLogo ? [{ logo:project.awardLogo, name:project.awardName }] : []);
+  awards.forEach(({ logo, name }) => {
+    const award = document.createElement('img');
+    award.className = 'project-award-logo';
+    award.src = logo;
+    award.alt = name || '获奖标识';
+    award.title = name || '';
+    title.append(award);
+  });
+}
+
 function projectCard(project, index) {
     const card = template.content.cloneNode(true);
     const article = card.querySelector('article');
@@ -28,14 +42,11 @@ function projectCard(project, index) {
     image.src = project.image;
     image.alt = project.title;
     image.loading = 'lazy';
-    card.querySelector('.project-index').textContent = project.displayIndex || String(index + 1).padStart(2, '0');
-    card.querySelector('h2').textContent = project.title;
+    const title = card.querySelector('h2');
+    title.textContent = project.title;
+    appendAwardLogos(title, project);
     card.querySelector('.project-description').textContent = project.description;
     card.querySelector('.project-year').textContent = project.year;
-    if (project.attachment) {
-      const link = card.querySelector('.attachment');
-      link.hidden = false; link.href = project.attachment.data; link.download = project.attachment.name;
-    }
     if (project.id.startsWith('custom-')) {
       const remove = card.querySelector('.delete-project');
       remove.hidden = false;
@@ -69,12 +80,6 @@ function deleteProject(id) {
   renderPractice();
 }
 
-function readFile(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader(); reader.onload = () => resolve(reader.result); reader.onerror = reject; reader.readAsDataURL(file);
-  });
-}
-
 function practiceCard(project) {
   const card = document.createElement(project.url ? 'a' : 'article');
   card.className = 'practice-card';
@@ -91,6 +96,7 @@ function practiceCard(project) {
   const copy = document.createElement('div');
   const title = document.createElement('h2');
   title.textContent = project.title;
+  appendAwardLogos(title, project);
   const description = document.createElement('p');
   description.className = 'project-description';
   description.textContent = project.description;
@@ -130,54 +136,6 @@ const aboutDialog = document.querySelector('#aboutDialog');
 document.querySelector('#openAbout').addEventListener('click', () => aboutDialog.showModal());
 document.querySelector('#closeAbout').addEventListener('click', () => aboutDialog.close());
 aboutDialog.addEventListener('click', event => { if (event.target === aboutDialog) aboutDialog.close(); });
-
-const slides = [...document.querySelectorAll('.carousel-slide')];
-const dots = [...document.querySelectorAll('.carousel-dot')];
-let activeSlide = 0;
-let carouselTimer;
-
-function showSlide(index) {
-  activeSlide = (index + slides.length) % slides.length;
-  slides.forEach((slide, slideIndex) => {
-    const active = slideIndex === activeSlide;
-    slide.classList.toggle('active', active);
-    slide.setAttribute('aria-hidden', String(!active));
-    slide.tabIndex = active ? 0 : -1;
-  });
-  dots.forEach((dot, dotIndex) => {
-    const active = dotIndex === activeSlide;
-    dot.classList.toggle('active', active);
-    if (active) dot.setAttribute('aria-current', 'true'); else dot.removeAttribute('aria-current');
-  });
-}
-
-function restartCarousel() {
-  clearInterval(carouselTimer);
-  carouselTimer = setInterval(() => showSlide(activeSlide + 1), 5500);
-}
-
-dots.forEach(dot => dot.addEventListener('click', () => { showSlide(Number(dot.dataset.slide)); restartCarousel(); }));
-document.querySelector('#previousSlide').addEventListener('click', () => { showSlide(activeSlide - 1); restartCarousel(); });
-document.querySelector('#nextSlide').addEventListener('click', () => { showSlide(activeSlide + 1); restartCarousel(); });
-
-let touchStartX = 0;
-let suppressCarouselClick = false;
-const viewport = document.querySelector('#carouselViewport');
-viewport.addEventListener('click', event => {
-  if (!suppressCarouselClick) return;
-  event.preventDefault();
-  suppressCarouselClick = false;
-}, true);
-viewport.addEventListener('touchstart', event => { touchStartX = event.changedTouches[0].clientX; }, { passive:true });
-viewport.addEventListener('touchend', event => {
-  const delta = event.changedTouches[0].clientX - touchStartX;
-  if (Math.abs(delta) < 45) return;
-  suppressCarouselClick = true;
-  setTimeout(() => { suppressCarouselClick = false; }, 400);
-  showSlide(activeSlide + (delta < 0 ? 1 : -1));
-  restartCarousel();
-}, { passive:true });
-restartCarousel();
 
 const pixelStage = document.querySelector('#pixelStage');
 const runnerKeys = new Set();
