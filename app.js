@@ -1,7 +1,7 @@
 const STORAGE_KEY = 'hou-portfolio-projects-v1';
 
 const seedProjects = [
-  { id:'next-seal', category:'ux', researchVisible:false, title:'NEXT Seal', year:'2023', description:'AI-powered seal creation platform\nAI 智能篆刻创作平台', image:'assets/next-seal/home-cover.png', url:'project-next-seal.html', awards:[{ logo:'assets/icons/awards/red-dot.png', name:'Red Dot Award' },{ logo:'assets/icons/awards/adesign.png', name:"A' Design Award" }] },
+  { id:'next-seal', category:'ux', researchVisible:false, title:'NEXT Seal', year:'2024', description:'AI-powered seal creation platform\nAI 智能篆刻创作平台', image:'assets/next-seal/home-cover.png', url:'project-next-seal.html', awards:[{ logo:'assets/icons/awards/red-dot.png', name:'Red Dot Award' },{ logo:'assets/icons/awards/adesign.png', name:"A' Design Award" }] },
   { id:'next-sealer', category:'industrial', displayIndex:'03', title:'NEXT Sealer', year:'2024', description:'Intelligent seal engraving machine\n智能篆刻机', image:'设计实践/工业设计/NEXT sealer/assets/cover.png', url:'project-next-sealer.html', awards:[{ logo:'assets/icons/awards/red-dot.png', name:'Red Dot Award' },{ logo:'assets/icons/awards/adesign.png', name:"A' Design Award" }] },
   { id:'bam3-creel', category:'industrial', title:'Bam³ Creel', year:'2023', description:'Modular bamboo fishing creel\n模块化竹编鱼篓', image:'assets/bam3-creel/detail-cover.png', url:'project-bam3-creel.html' },
   { id:'silkworm-box', category:'industrial', displayIndex:'06', title:'Silkworm Box', year:'2022', description:'Smart sericulture learning kit\n智能养蚕自然教育套件', image:'设计实践/工业设计/Silkworm Box/assets/home-cover.png', url:'project-silkworm-box.html', awardLogo:'assets/icons/awards/red-dot.png', awardName:'Red Dot Award' },
@@ -9,11 +9,12 @@ const seedProjects = [
   { id:'coastalbam-jar', category:'industrial', displayIndex:'05', title:'CoastalBam Jar', year:'2024', description:'Contemporary bamboo-woven salt jar\n当代竹编盐罐', image:'设计实践/工业设计/CoastalBam Jar/assets/cover.png', url:'project-coastalbam-jar.html', awardLogo:'assets/icons/awards/red-dot.png', awardName:'Red Dot Award' },
   { id:'storyteller', category:'industrial', displayIndex:'04', title:'Storyteller', year:'2025', description:'AI companion for life stories\n记录生命故事的 AI 陪伴机器人', image:'设计实践/工业设计/Storyteller/assets/cover-restored.png', url:'project-storyteller.html' },
   { id:'oil-spill-collector', category:'industrial', title:'Deoiling Machine', year:'2021', description:'Offshore oil recovery system\n海上原油回收系统', image:'assets/oil-spill-collector/cover.png', url:'project-oil-spill-collector.html', awardLogo:'assets/icons/awards/if.png', awardName:'iF Design Award' },
-  { id:'pumpbtc', category:'graphic', title:'PumpBTC', year:'2025', description:'Bitcoin brand identity system\n比特币品牌视觉系统', image:'设计实践/视觉设计/PumpBTC/assets/01.png', url:'project-pumpbtc.html' },
-  { id:'zju130', category:'graphic', title:'Zhejiang University 130th Anniversary', year:'2027', description:'Anniversary visual identity\n周年纪念视觉识别系统', image:'设计实践/视觉设计/ZJU130/assets/cover.png', url:'project-zju130.html' },
-  { id:'loop', category:'industrial', title:'Loop', year:'2024', description:'Personal AI companion\n个性化 AI 陪伴机器人', image:'设计实践/工业设计/LOOP/assets/cover-restored.png', url:'project-loop.html' },
+  { id:'pumpbtc', category:'graphic', title:'PumpBTC', year:'2025', description:'Bitcoin brand identity system\n比特币品牌视觉系统', image:'设计实践/视觉设计/PumpBTC/assets/home-cover-v3.png', url:'project-pumpbtc.html' },
+  { id:'zju130', category:'graphic', title:'Zhejiang University 130th Anniversary', year:'2026', description:'Anniversary visual identity\n周年纪念视觉识别系统', image:'设计实践/视觉设计/ZJU130/assets/cover.png', url:'project-zju130.html' },
+  { id:'loop', category:'industrial', title:'Loop', year:'2025', description:'Personal AI companion\n个性化 AI 陪伴机器人', image:'设计实践/工业设计/LOOP/assets/cover-restored.png', url:'project-loop.html' },
+  { id:'product-sketch-series', category:'sketch', title:'产品手绘系列', year:'2020年起', description:'Hand sketching practice during my studies\n求学期间的手绘练习', image:'assets/sketch/product-sketch-series-cover.png', url:'project-hand-sketching.html' },
   { id:'PoemCraft', category:'ux', researchTag:'xr', practiceVisible:false, title:'PoemCraft', year:'2026', description:'Constructive XR poetry learning\n建构式 XR 诗词学习体验', image:'设计研究/PoemCraft/assets/cover.png', url:'index-peomcraft.html', awardLogo:'assets/icons/awards/maic.png', awardName:'CCCC MAIC' },
-  { id:'heritage-spark', category:'ux', researchTag:'tools', practiceVisible:false, title:'Heritage Spark', year:'2026', description:'Card toolkit for digital heritage\n非遗数字化设计卡片工具包', image:'设计研究/Heritage Spark/assets/cover.png', url:'index-heritage-spark.html', awardLogo:'assets/icons/awards/adesign.png', awardName:"A' Design Award" },
+  { id:'heritage-spark', category:'ux', researchTag:'tools', practiceVisible:false, title:'Heritage Spark', year:'2025', description:'Card toolkit for digital heritage\n非遗数字化设计卡片工具包', image:'设计研究/Heritage Spark/assets/cover.png', url:'index-heritage-spark.html', awardLogo:'assets/icons/awards/adesign.png', awardName:"A' Design Award" },
 ];
 
 let customProjects = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
@@ -111,7 +112,14 @@ function practiceCard(project) {
 
 function renderPractice() {
   const projects = [...customProjects, ...seedProjects].filter(project => project.practiceVisible !== false && (practiceFilter === 'all' || project.category === practiceFilter));
-  practiceGrid.replaceChildren(...projects.map(practiceCard));
+  if (projects.length) {
+    practiceGrid.replaceChildren(...projects.map(practiceCard));
+    return;
+  }
+  const emptyState = document.createElement('div');
+  emptyState.className = 'practice-empty-state';
+  emptyState.innerHTML = '<p>Sketches coming soon</p><span>手绘作品整理中</span>';
+  practiceGrid.replaceChildren(emptyState);
 }
 
 document.querySelectorAll('#researchFilters .filter-button').forEach(button => button.addEventListener('click', () => {
@@ -136,6 +144,37 @@ const aboutDialog = document.querySelector('#aboutDialog');
 document.querySelector('#openAbout').addEventListener('click', () => aboutDialog.showModal());
 document.querySelector('#closeAbout').addEventListener('click', () => aboutDialog.close());
 aboutDialog.addEventListener('click', event => { if (event.target === aboutDialog) aboutDialog.close(); });
+
+const hobbyButtons = [...document.querySelectorAll('.about-hobby-buttons button')];
+const hobbyPhoto = document.querySelector('#hobbyPhoto');
+const hobbyPhotoPlaceholder = document.querySelector('#hobbyPhotoPlaceholder');
+const hobbyPhotoLabel = document.querySelector('#hobbyPhotoLabel');
+
+hobbyButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    hobbyButtons.forEach(item => {
+      const selected = item === button;
+      item.classList.toggle('is-active', selected);
+      item.setAttribute('aria-pressed', String(selected));
+    });
+
+    const imagePath = button.dataset.image;
+    hobbyPhotoLabel.textContent = button.dataset.hobby;
+    hobbyPhoto.hidden = !imagePath;
+    hobbyPhotoPlaceholder.hidden = Boolean(imagePath);
+
+    if (imagePath) {
+      hobbyPhoto.src = imagePath;
+      hobbyPhoto.alt = `${button.dataset.hobby}相关图片`;
+      hobbyPhoto.style.objectPosition = button.dataset.position || 'center center';
+    }
+  });
+});
+
+hobbyPhoto.addEventListener('error', () => {
+  hobbyPhoto.hidden = true;
+  hobbyPhotoPlaceholder.hidden = false;
+});
 
 const pixelStage = document.querySelector('#pixelStage');
 const runnerKeys = new Set();

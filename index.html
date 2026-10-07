@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="A quiet, considered portfolio for multidisciplinary design work." />
     <title>Lianghou portfolio</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon/favicon-64.png" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -128,7 +131,7 @@
             <section class="profile-group publication-group" aria-labelledby="publicationTitle">
               <h2 id="publicationTitle">Publication</h2>
               <div class="publication-list">
-                <p><span>Design Studies</span><span>× 1</span></p>
+                <p><span>Design Studies（SCIE, JCR Q1）</span><span>× 1</span></p>
                 <p><span>In progress</span></p>
               </div>
             </section>
@@ -157,6 +160,7 @@
             <li><button class="filter-button" type="button" data-filter="ux">交互设计</button></li>
             <li><button class="filter-button" type="button" data-filter="industrial">工业设计</button></li>
             <li><button class="filter-button" type="button" data-filter="graphic">平面设计</button></li>
+            <li><button class="filter-button" type="button" data-filter="sketch">手绘</button></li>
           </ul>
         </div>
         <div class="practice-grid" id="practiceGrid"></div>
@@ -187,15 +191,29 @@
       <div class="about-inner">
         <div class="about-head"><p>About Me / 关于我</p><button id="closeAbout" type="button" aria-label="关闭介绍"><img src="assets/icons/x.svg" alt=""></button></div>
         <div class="about-content">
-          <section class="about-profile" aria-label="个人资料">
-            <img class="about-photo" src="assets/about/liang-hou.jpg" alt="侯亮在森林栈道上的个人照片">
+          <section class="about-profile" aria-label="兴趣图片">
+            <div class="about-photo-stage">
+              <img class="about-photo" id="hobbyPhoto" src="assets/about/liang-hou.jpg" alt="侯亮在森林栈道上的个人照片">
+              <div class="about-photo-placeholder" id="hobbyPhotoPlaceholder" hidden>
+                <span id="hobbyPhotoLabel">做饭</span>
+                <small>IMAGE COMING SOON / 图片待补充</small>
+              </div>
+            </div>
           </section>
           <section class="about-story" aria-labelledby="aboutStoryTitle">
             <h2 id="aboutStoryTitle">About Me</h2>
             <p>我叫侯亮，是一名工业设计背景的设计师，也是一名对新鲜事物保持强烈好奇心的探索者。我喜欢观察生活里那些不起眼却有趣的现象，并尝试通过设计、技术和实验把它们变成真实的作品。我的兴趣横跨产品设计、人机交互、传统文化与新型交互材料。希望未来能够继续在设计与研究的交叉地带探索，把那些看起来有些异想天开的想法，认真地变成现实。</p>
             <div class="about-hobby-block">
               <h3>Hobby</h3>
-              <ul><li>做饭</li><li>看动物世界</li><li>游泳</li><li>园艺</li></ul>
+              <div class="about-hobby-buttons" role="group" aria-label="选择兴趣图片">
+                <button class="is-active" type="button" data-hobby="亲近大自然" data-image="assets/about/liang-hou.jpg" aria-pressed="true">亲近大自然</button>
+                <button type="button" data-hobby="做饭" data-image="assets/about/hobbies/cooking.jpg" aria-pressed="false">做饭</button>
+                <button type="button" data-hobby="看动物世界" data-image="assets/about/hobbies/wildlife.jpg" aria-pressed="false">看动物世界</button>
+                <button type="button" data-hobby="游泳" data-image="assets/about/hobbies/swimming-v5.jpg" data-position="center center" aria-pressed="false">游泳</button>
+                <button type="button" data-hobby="园艺" data-image="assets/about/hobbies/gardening.jpg" aria-pressed="false">园艺</button>
+                <button type="button" data-hobby="旅行摄影" data-image="assets/about/hobbies/travel-photography.jpg" aria-pressed="false">旅行摄影</button>
+                <button type="button" data-hobby="用垃圾做时装设计" data-image="assets/about/hobbies/waste-styling.png" data-position="center center" aria-pressed="false">用垃圾做时装设计</button>
+              </div>
             </div>
           </section>
         </div>
