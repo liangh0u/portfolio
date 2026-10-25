@@ -39,13 +39,15 @@ CGImageRef icons[5]; for(int i=0;i<5;i++) icons[i]=load([@"icons/" stringByAppen
 NSURL *url=[NSURL fileURLWithPath:@"assets/interaction/video/home-intro.mp4"];
 [[NSFileManager defaultManager] removeItemAtURL:url error:nil];
 NSError *error=nil; AVAssetWriter *writer=[[AVAssetWriter alloc] initWithURL:url fileType:AVFileTypeMPEG4 error:&error];
-AVAssetWriterInput *input=[AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:@{AVVideoCodecKey:AVVideoCodecTypeH264,AVVideoWidthKey:@1280,AVVideoHeightKey:@440,AVVideoCompressionPropertiesKey:@{AVVideoAverageBitRateKey:@3500000}}];
-AVAssetWriterInputPixelBufferAdaptor *ad=[AVAssetWriterInputPixelBufferAdaptor assetWriterInputPixelBufferAdaptorWithAssetWriterInput:input sourcePixelBufferAttributes:@{(id)kCVPixelBufferPixelFormatTypeKey:@(kCVPixelFormatType_32ARGB),(id)kCVPixelBufferWidthKey:@1280,(id)kCVPixelBufferHeightKey:@440,(id)kCVPixelBufferCGImageCompatibilityKey:@YES,(id)kCVPixelBufferCGBitmapContextCompatibilityKey:@YES}];
+AVAssetWriterInput *input=[AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:@{AVVideoCodecKey:AVVideoCodecTypeH264,AVVideoWidthKey:@2560,AVVideoHeightKey:@880,AVVideoCompressionPropertiesKey:@{AVVideoAverageBitRateKey:@14000000}}];
+AVAssetWriterInputPixelBufferAdaptor *ad=[AVAssetWriterInputPixelBufferAdaptor assetWriterInputPixelBufferAdaptorWithAssetWriterInput:input sourcePixelBufferAttributes:@{(id)kCVPixelBufferPixelFormatTypeKey:@(kCVPixelFormatType_32ARGB),(id)kCVPixelBufferWidthKey:@2560,(id)kCVPixelBufferHeightKey:@880,(id)kCVPixelBufferCGImageCompatibilityKey:@YES,(id)kCVPixelBufferCGBitmapContextCompatibilityKey:@YES}];
 [writer addInput:input]; writer.shouldOptimizeForNetworkUse=YES; [writer startWriting]; [writer startSessionAtSourceTime:kCMTimeZero];
 for(int f=0;f<390;f++) { @autoreleasepool {
 while(!input.readyForMoreMediaData) { if(writer.status==AVAssetWriterStatusFailed) { NSLog(@"%@",writer.error); return 1; } [NSThread sleepForTimeInterval:.002]; }
 CVPixelBufferRef pixel; CVPixelBufferPoolCreatePixelBuffer(NULL,ad.pixelBufferPool,&pixel); CVPixelBufferLockBaseAddress(pixel,0);
-CGColorSpaceRef cs=CGColorSpaceCreateDeviceRGB(); CGContextRef c=CGBitmapContextCreate(CVPixelBufferGetBaseAddress(pixel),1280,440,8,CVPixelBufferGetBytesPerRow(pixel),cs,kCGImageAlphaNoneSkipFirst); CGColorSpaceRelease(cs); CGContextSetInterpolationQuality(c,kCGInterpolationNone);
+CGColorSpaceRef cs=CGColorSpaceCreateDeviceRGB(); CGContextRef c=CGBitmapContextCreate(CVPixelBufferGetBaseAddress(pixel),2560,880,8,CVPixelBufferGetBytesPerRow(pixel),cs,kCGImageAlphaNoneSkipFirst); CGColorSpaceRelease(cs); CGContextSetInterpolationQuality(c,kCGInterpolationNone);
+// Render at 2x resolution while keeping scene coordinates and timing unchanged.
+CGContextScaleCTM(c,2,2);
 double t=f/30.0;
 // Start well behind the group and steadily gain throughout the chase.
 // Close the iris only once the player is within catching distance of CHI.
