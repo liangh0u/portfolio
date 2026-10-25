@@ -176,46 +176,38 @@ hobbyPhoto.addEventListener('error', () => {
   hobbyPhotoPlaceholder.hidden = false;
 });
 
-const pixelStage = document.querySelector('#pixelStage');
-const runnerKeys = new Set();
-let runnerShift = 0;
-let runnerFrame = 0;
-let runnerTime = performance.now();
-
-function runnerDirection() {
-  return (runnerKeys.has('d') || runnerKeys.has('arrowright') ? 1 : 0)
-    - (runnerKeys.has('a') || runnerKeys.has('arrowleft') ? 1 : 0);
+// Play the showcases in order: immediate start, then 0.8 seconds of fade-out.
+const homeIntroVideo = document.querySelector('.home-intro-video');
+const showcaseVideos = [...document.querySelectorAll('.home-showcase-video')];
+function playShowcase(index) {
+  const video = showcaseVideos[index];
+  if (!video) return;
+  video.currentTime = 0;
+  video.play().catch(() => {
+    document.addEventListener('pointerdown', () => video.play().catch(() => {}), { once: true });
+  });
 }
-
-function updateRunnerPosition(delta) {
-  if (!pixelStage) return;
-  const player = pixelStage.querySelector('.pixel-player');
-  const leadRunner = pixelStage.querySelector('.escape-dis');
-  const minShift = 8 - player.offsetLeft;
-  const maxShift = pixelStage.clientWidth - 8 - leadRunner.offsetLeft - leadRunner.offsetWidth;
-  runnerShift = Math.min(maxShift, Math.max(minShift, runnerShift + delta));
-  pixelStage.style.setProperty('--runner-shift', `${Math.round(runnerShift)}px`);
-}
-
-function animateRunner(time) {
-  const elapsed = Math.min(40, time - runnerTime);
-  runnerTime = time;
-  updateRunnerPosition(runnerDirection() * elapsed * .28);
-  runnerFrame = requestAnimationFrame(animateRunner);
-}
-
-document.addEventListener('keydown', event => {
-  if (event.target instanceof Element && event.target.matches('input,textarea,select,[contenteditable="true"]')) return;
-  const key = event.key.toLowerCase();
-  if (!['a','d','arrowleft','arrowright'].includes(key)) return;
-  event.preventDefault();
-  runnerKeys.add(key);
+showcaseVideos.forEach((video, index) => {
+  let fadeFrame;
+  const updateFade = () => {
+    if (Number.isFinite(video.duration)) {
+      video.style.opacity = String(Math.min(1, Math.max(0, (video.duration - video.currentTime) / 0.8)));
+    }
+    if (!video.paused && !video.ended) fadeFrame = requestAnimationFrame(updateFade);
+  };
+  video.addEventListener('playing', () => {
+    if (homeIntroVideo) homeIntroVideo.style.visibility = 'hidden';
+    cancelAnimationFrame(fadeFrame);
+    updateFade();
+  });
+  video.addEventListener('pause', () => cancelAnimationFrame(fadeFrame));
+  video.addEventListener('ended', () => {
+    cancelAnimationFrame(fadeFrame);
+    video.style.opacity = '0';
+    playShowcase(index + 1);
+  }, { once: true });
 });
-
-document.addEventListener('keyup', event => runnerKeys.delete(event.key.toLowerCase()));
-window.addEventListener('blur', () => runnerKeys.clear());
-window.addEventListener('resize', () => updateRunnerPosition(0));
-runnerFrame = requestAnimationFrame(animateRunner);
+homeIntroVideo?.addEventListener('ended', () => playShowcase(0), { once: true });
 
 document.querySelector('#year').textContent = new Date().getFullYear();
 renderResearch();

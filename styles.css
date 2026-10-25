@@ -53,9 +53,6 @@ button,a { color:inherit; }
 .escape-dis span { position:absolute; z-index:2; top:12%; left:50%; color:#f7f7f4; background:transparent; font:clamp(29px,3vw,44px)/1 "Pixer",monospace; letter-spacing:.02em; text-shadow:-2px 0 #747c83,0 2px #747c83,2px 0 #747c83,0 -2px #747c83,2px 2px 0 #929aa1; transform:translateX(-50%); white-space:nowrap; }
 .escape-dis i { position:absolute; z-index:1; bottom:-3%; left:43%; width:9px; height:45%; background:#edf0f1; box-shadow:inset -3px 0 0 #858d94,0 3px 0 #6f7780; transform-origin:50% 0; animation:dis-leg-run .3s steps(1,end) infinite; }
 .escape-dis i:last-child { left:57%; animation-delay:-.15s; }
-.pixel-move-hint { position:absolute; z-index:14; right:14px; bottom:14px; display:flex; align-items:center; gap:10px; color:#fff; font:10px/1 "Pixer",monospace; text-transform:uppercase; text-shadow:2px 2px 0 rgba(36,67,111,.55); pointer-events:none; }
-.pixel-move-hint>div { display:flex; gap:5px; }
-.pixel-move-hint kbd { width:25px; height:25px; display:grid; place-items:center; border:2px solid #fff; color:#fff; background:rgba(36,67,111,.55); box-shadow:2px 2px 0 rgba(19,39,78,.65); font:10px/1 "Pixer",monospace; }
 .winged-award { position:absolute; z-index:5; left:104%; width:84px; height:34px; background:transparent; image-rendering:pixelated; will-change:left,top,opacity; }
 .winged-award img { position:absolute; z-index:2; inset:6px auto auto 4px; width:24px; height:24px; object-fit:contain; image-rendering:pixelated; filter:drop-shadow(2px 2px 0 rgba(36,67,111,.28)); }
 .winged-award::before,.winged-award::after { content:''; position:absolute; z-index:1; background:#fff; image-rendering:pixelated; animation:award-exhaust .28s steps(2) infinite; }
@@ -193,7 +190,8 @@ button,a { color:inherit; }
 .about-content { margin:22px 0 54px; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
 .about-photo-stage { position:relative; width:100%; aspect-ratio:4/3; overflow:hidden; background:#f1f0ec; }
 .about-photo { width:100%; height:100%; display:block; object-fit:cover; object-position:center 62%; }
-.about-photo-placeholder { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; color:#252525; text-align:center; }
+.about-photo[hidden] { display:none; }
+.about-photo-placeholder { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; background:#e5e5e5; color:#252525; text-align:center; }
 .about-photo-placeholder[hidden] { display:none; }
 .about-photo-placeholder span { font-size:18px; }
 .about-photo-placeholder small { color:#89867f; font-size:9px; letter-spacing:.12em; }
@@ -498,3 +496,9 @@ footer p:last-child { justify-self:end; color:#8b8982; font-size:10px; letter-sp
   .education-list li > div:last-child > span,
   .education-list li > div:last-child > p { grid-column:1; grid-row:auto; }
 }
+
+/* Prerendered intro: plays once and holds on the final black frame. */
+#pixelStage { background:#000; height:auto; min-height:0; aspect-ratio:1280/440; }
+.home-intro-video { display:block; width:100%; height:100%; object-fit:cover; background:#000; }
+.home-showcase-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; pointer-events:none; }
+.home-poemcraft-video { transform:scale(1.03); }
