@@ -409,7 +409,7 @@
 .offline-ui-step h3 { margin:9px 0 8px; }
 .case-page .offline-ui-step p { margin:0; color:#4e4d48; font-size:13px; line-height:1.75; }
 .case-page .commerce-step p { font-size:13px; }
-.project-video video { width:100%; aspect-ratio:16/9; display:block; object-fit:contain; background:#171715; }
+video.project-video { width:100%; aspect-ratio:16/9; display:block; object-fit:contain; background:#171715; }
 .video-copy { margin-top:30px; }
 .video-copy h2 { margin:0 0 10px; }
 .case-page .video-copy p { margin:0; color:#4e4d48; font-size:13px; line-height:1.75; }

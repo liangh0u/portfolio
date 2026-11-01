@@ -1,17 +1,17 @@
 const STORAGE_KEY = 'hou-portfolio-projects-v1';
 
 const seedProjects = [
-  { id:'next-seal', category:'ux', researchVisible:false, title:'NEXT Seal', year:'2024', description:'AI-powered seal creation platform\nAI 智能篆刻创作平台', image:'assets/next-seal/home-cover.png', url:'project-next-seal.html', awards:[{ logo:'assets/icons/awards/red-dot.png', name:'Red Dot Award' },{ logo:'assets/icons/awards/adesign.png', name:"A' Design Award" }] },
-  { id:'next-sealer', category:'industrial', displayIndex:'03', title:'NEXT Sealer', year:'2024', description:'Intelligent seal engraving machine\n智能篆刻机', image:'设计实践/工业设计/NEXT sealer/assets/cover.png', url:'project-next-sealer.html', awards:[{ logo:'assets/icons/awards/red-dot.png', name:'Red Dot Award' },{ logo:'assets/icons/awards/adesign.png', name:"A' Design Award" }] },
-  { id:'bam3-creel', category:'industrial', title:'Bam³ Creel', year:'2023', description:'Modular bamboo fishing creel\n模块化竹编鱼篓', image:'assets/bam3-creel/detail-cover.png', url:'project-bam3-creel.html' },
-  { id:'silkworm-box', category:'industrial', displayIndex:'06', title:'Silkworm Box', year:'2022', description:'Smart sericulture learning kit\n智能养蚕自然教育套件', image:'设计实践/工业设计/Silkworm Box/assets/home-cover.png', url:'project-silkworm-box.html', awardLogo:'assets/icons/awards/red-dot.png', awardName:'Red Dot Award' },
+  { id:'next-seal', category:'ux', practiceGroup:'heritage', researchVisible:false, title:'NEXT Seal', year:'2024', description:'AI-powered seal creation platform\nAI 智能篆刻创作平台', image:'assets/next-seal/home-cover.png', url:'project-next-seal.html', awards:[{ logo:'assets/icons/awards/red-dot.png', name:'Red Dot Award' },{ logo:'assets/icons/awards/adesign.png', name:"A' Design Award" }] },
+  { id:'next-sealer', category:'industrial', practiceGroup:'heritage', displayIndex:'03', title:'NEXT Sealer', year:'2024', description:'Intelligent seal engraving machine\n智能篆刻机', image:'设计实践/工业设计/NEXT sealer/assets/cover.png', url:'project-next-sealer.html', awards:[{ logo:'assets/icons/awards/red-dot.png', name:'Red Dot Award' },{ logo:'assets/icons/awards/adesign.png', name:"A' Design Award" }] },
+  { id:'bam3-creel', category:'industrial', practiceGroup:'heritage', title:'Bam³ Creel', year:'2023', description:'Modular bamboo fishing creel\n模块化竹编鱼篓', image:'assets/bam3-creel/detail-cover.png', url:'project-bam3-creel.html' },
+  { id:'silkworm-box', category:'industrial', practiceGroup:'heritage', displayIndex:'06', title:'Silkworm Box', year:'2022', description:'Smart sericulture learning kit\n智能养蚕自然教育套件', image:'设计实践/工业设计/Silkworm Box/assets/home-cover.png', url:'project-silkworm-box.html', awardLogo:'assets/icons/awards/red-dot.png', awardName:'Red Dot Award' },
   { id:'rotating-suitcase', category:'industrial', displayIndex:'07', title:'Rotating Suitcase', year:'2022', description:'Transformable travel suitcase\n可变形多功能行李箱', image:'设计实践/工业设计/Rotating Suitcase/assets/home-cover.png', url:'project-rotating-suitcase.html', awardLogo:'assets/icons/awards/idea.png', awardName:'IDEA' },
-  { id:'coastalbam-jar', category:'industrial', displayIndex:'05', title:'CoastalBam Jar', year:'2024', description:'Contemporary bamboo-woven salt jar\n当代竹编盐罐', image:'设计实践/工业设计/CoastalBam Jar/assets/cover.png', url:'project-coastalbam-jar.html', awardLogo:'assets/icons/awards/red-dot.png', awardName:'Red Dot Award' },
-  { id:'storyteller', category:'industrial', displayIndex:'04', title:'Storyteller', year:'2025', description:'AI companion for life stories\n记录生命故事的 AI 陪伴机器人', image:'设计实践/工业设计/Storyteller/assets/cover-restored.png', url:'project-storyteller.html' },
+  { id:'coastalbam-jar', category:'industrial', practiceGroup:'heritage', displayIndex:'05', title:'CoastalBam Jar', year:'2024', description:'Contemporary bamboo-woven salt jar\n当代竹编盐罐', image:'设计实践/工业设计/CoastalBam Jar/assets/cover.png', url:'project-coastalbam-jar.html', awardLogo:'assets/icons/awards/red-dot.png', awardName:'Red Dot Award' },
+  { id:'storyteller', category:'industrial', practiceGroup:'ai', displayIndex:'04', title:'Storyteller', year:'2025', description:'AI companion for life stories\n记录生命故事的 AI 陪伴机器人', image:'设计实践/工业设计/Storyteller/assets/cover-restored.png', url:'project-storyteller.html' },
   { id:'oil-spill-collector', category:'industrial', title:'Deoiling Machine', year:'2021', description:'Offshore oil recovery system\n海上原油回收系统', image:'assets/oil-spill-collector/cover.png', url:'project-oil-spill-collector.html', awardLogo:'assets/icons/awards/if.png', awardName:'iF Design Award' },
   { id:'pumpbtc', category:'graphic', title:'PumpBTC', year:'2025', description:'Bitcoin brand identity system\n比特币品牌视觉系统', image:'设计实践/视觉设计/PumpBTC/assets/home-cover-v3.png', url:'project-pumpbtc.html' },
   { id:'zju130', category:'graphic', title:'Zhejiang University 130th Anniversary', year:'2026', description:'Anniversary visual identity\n周年纪念视觉识别系统', image:'设计实践/视觉设计/ZJU130/assets/cover.png', url:'project-zju130.html' },
-  { id:'loop', category:'industrial', title:'Loop', year:'2025', description:'Personal AI companion\n个性化 AI 陪伴机器人', image:'设计实践/工业设计/LOOP/assets/cover-restored.png', url:'project-loop.html' },
+  { id:'loop', category:'industrial', practiceGroup:'ai', title:'Loop', year:'2025', description:'Personal AI companion\n个性化 AI 陪伴机器人', image:'设计实践/工业设计/LOOP/assets/cover-restored.png', url:'project-loop.html' },
   { id:'product-sketch-series', category:'sketch', title:'产品手绘系列', year:'2020年起', description:'Hand sketching practice during my studies\n求学期间的手绘练习', image:'assets/sketch/product-sketch-series-cover.png', url:'project-hand-sketching.html' },
   { id:'PoemCraft', category:'ux', researchTag:'xr', practiceVisible:false, title:'PoemCraft', year:'2026', description:'Constructive XR poetry learning\n建构式 XR 诗词学习体验', image:'设计研究/PoemCraft/assets/cover.png', url:'index-peomcraft.html', awardLogo:'assets/icons/awards/maic.png', awardName:'CCCC MAIC' },
   { id:'heritage-spark', category:'ux', researchTag:'tools', practiceVisible:false, title:'Heritage Spark', year:'2025', description:'Card toolkit for digital heritage\n非遗数字化设计卡片工具包', image:'设计研究/Heritage Spark/assets/cover.png', url:'index-heritage-spark.html', awardLogo:'assets/icons/awards/adesign.png', awardName:"A' Design Award" },
@@ -111,7 +111,7 @@ function practiceCard(project) {
 }
 
 function renderPractice() {
-  const projects = [...customProjects, ...seedProjects].filter(project => project.practiceVisible !== false && (practiceFilter === 'all' || project.category === practiceFilter));
+  const projects = [...customProjects, ...seedProjects].filter(project => project.practiceVisible !== false && (practiceFilter === 'all' || (project.practiceGroup || 'other') === practiceFilter));
   if (projects.length) {
     practiceGrid.replaceChildren(...projects.map(practiceCard));
     return;
@@ -176,9 +176,14 @@ hobbyPhoto.addEventListener('error', () => {
   hobbyPhotoPlaceholder.hidden = false;
 });
 
-// Play the showcases in order: immediate start, then 0.8 seconds of fade-out.
-const homeIntroVideo = document.querySelector('.home-intro-video');
+const pixelStage = document.querySelector('#pixelStage');
+const pixelPlayer = document.querySelector('#pixelPlayer');
+const pixelTears = document.querySelector('#pixelTears');
+const escapeIris = document.querySelector('#escapeIris');
+const pixelSceneCaption = document.querySelector('#pixelSceneCaption');
 const showcaseVideos = [...document.querySelectorAll('.home-showcase-video')];
+let restartPixelScene;
+
 function playShowcase(index) {
   const video = showcaseVideos[index];
   if (!video) return;
@@ -187,27 +192,119 @@ function playShowcase(index) {
     document.addEventListener('pointerdown', () => video.play().catch(() => {}), { once: true });
   });
 }
+
 showcaseVideos.forEach((video, index) => {
   let fadeFrame;
   const updateFade = () => {
     if (Number.isFinite(video.duration)) {
-      video.style.opacity = String(Math.min(1, Math.max(0, (video.duration - video.currentTime) / 0.8)));
+      video.style.opacity = String(Math.min(1, Math.max(0, (video.duration - video.currentTime) / .8)));
     }
     if (!video.paused && !video.ended) fadeFrame = requestAnimationFrame(updateFade);
   };
   video.addEventListener('playing', () => {
-    if (homeIntroVideo) homeIntroVideo.style.visibility = 'hidden';
+    video.classList.add('is-playing');
     cancelAnimationFrame(fadeFrame);
     updateFade();
   });
   video.addEventListener('pause', () => cancelAnimationFrame(fadeFrame));
   video.addEventListener('ended', () => {
     cancelAnimationFrame(fadeFrame);
+    video.classList.remove('is-playing');
     video.style.opacity = '0';
-    playShowcase(index + 1);
-  }, { once: true });
+    if (showcaseVideos[index + 1]) {
+      playShowcase(index + 1);
+    } else {
+      window.setTimeout(() => restartPixelScene?.(), 500);
+    }
+  });
 });
-homeIntroVideo?.addEventListener('ended', () => playShowcase(0), { once: true });
+
+if (pixelStage && pixelPlayer && escapeIris) {
+  const clamp = value => Math.min(1, Math.max(0, value));
+  const smooth = value => {
+    const progress = clamp(value);
+    return progress * progress * (3 - 2 * progress);
+  };
+  let sceneStart = performance.now();
+  let sceneFrame;
+  let showcaseStarted = false;
+
+  restartPixelScene = () => {
+    cancelAnimationFrame(sceneFrame);
+    showcaseVideos.forEach(video => {
+      video.pause();
+      video.currentTime = 0;
+      video.style.opacity = '0';
+      video.classList.remove('is-playing');
+    });
+    pixelPlayer.classList.remove('is-falling', 'is-fallen', 'is-crying');
+    pixelTears?.classList.remove('is-visible');
+    pixelSceneCaption.textContent = '';
+    escapeIris.classList.remove('is-visible');
+    escapeIris.style.background = '';
+    pixelStage.style.setProperty('--player-shift', '0px');
+    pixelStage.style.setProperty('--target-shift', '0px');
+    showcaseStarted = false;
+    sceneStart = performance.now();
+    sceneFrame = requestAnimationFrame(animatePixelScene);
+  };
+
+  function animatePixelScene(time) {
+    const elapsed = time - sceneStart;
+    const width = pixelStage.clientWidth;
+    const chase = clamp(elapsed / 5200);
+    const playerShift = (-.22 + .78 * chase) * width;
+    const targetRun = (-.1 + .78 * chase) * width;
+    const targetEscape = clamp((elapsed - 5200) / 5200) * .78 * width;
+    const targetShift = targetRun + targetEscape;
+
+    pixelStage.style.setProperty('--player-shift', `${playerShift}px`);
+    pixelStage.style.setProperty('--target-shift', `${targetShift}px`);
+
+    if (elapsed >= 5200) pixelPlayer.classList.add('is-falling');
+    if (elapsed >= 6250) {
+      pixelPlayer.classList.add('is-fallen');
+      pixelPlayer.classList.add('is-crying');
+      pixelSceneCaption.textContent = 'OUCH...';
+      const stageRect = pixelStage.getBoundingClientRect();
+      const playerRect = pixelPlayer.getBoundingClientRect();
+      pixelSceneCaption.style.left = `${playerRect.left - stageRect.left + playerRect.width * .36}px`;
+      pixelSceneCaption.style.top = `${playerRect.top - stageRect.top + playerRect.height * .52}px`;
+      if (pixelTears) {
+        pixelTears.style.left = `${playerRect.left - stageRect.left + playerRect.width * .3}px`;
+        pixelTears.style.top = `${playerRect.top - stageRect.top + playerRect.height * .58}px`;
+        pixelTears.classList.add('is-visible');
+      }
+    }
+
+    if (elapsed >= 7500) {
+      const irisProgress = smooth((elapsed - 7500) / 2500);
+      const stageRect = pixelStage.getBoundingClientRect();
+      const playerRect = pixelPlayer.getBoundingClientRect();
+      const focusX = playerRect.left - stageRect.left + playerRect.width * .3;
+      const focusY = playerRect.top - stageRect.top + playerRect.height * .58;
+      const radius = Math.hypot(width, pixelStage.clientHeight) * (1 - irisProgress);
+      escapeIris.style.background = `radial-gradient(circle ${radius}px at ${focusX}px ${focusY}px, transparent 0 ${Math.max(0, radius - 2)}px, #000 ${radius}px)`;
+      escapeIris.classList.add('is-visible');
+    }
+
+    if (elapsed >= 10000 && !showcaseStarted) {
+      showcaseStarted = true;
+      playShowcase(0);
+    }
+
+    if (elapsed < 10100) {
+      sceneFrame = requestAnimationFrame(animatePixelScene);
+    } else {
+      sceneFrame = null;
+    }
+  }
+
+  sceneFrame = requestAnimationFrame(animatePixelScene);
+  window.addEventListener('resize', () => {
+    if (!sceneFrame) sceneFrame = requestAnimationFrame(animatePixelScene);
+  });
+}
 
 document.querySelector('#year').textContent = new Date().getFullYear();
 renderResearch();

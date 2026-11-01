@@ -30,17 +30,42 @@
 
     <main id="top">
       <div class="home-wrap">
-      <section class="interaction-zone" aria-label="HOU 像素奔跑与 Poemcraft 展示">
+      <section class="interaction-zone" aria-label="HOU 像素追赶动画">
         <div class="pixel-stage" id="pixelStage">
-          <video class="home-intro-video" autoplay muted playsinline preload="auto" aria-label="人物与 CHI、UIST、DIS 三个会议小人从左向右奔跑，圆形黑幕最后收拢至人物头部，画面变黑">
-            <source src="assets/interaction/video/home-intro.mp4?v=9" type="video/mp4">
-            您的浏览器不支持视频播放。
-          </video>
-          <video class="home-showcase-video home-poemcraft-video" muted playsinline preload="auto" aria-label="Poemcraft 交互展示">
+          <div class="escape-background" aria-hidden="true"></div>
+          <img class="escape-title" src="assets/interaction/title/welcome-title-yellow-blue.png" alt="Welcome to my website">
+          <aside class="pixel-scoreboard" aria-label="Achievement scoreboard">
+            <section>
+              <h2>Awards</h2>
+              <ul>
+                <li><img src="assets/interaction/icons/award-red-dot.png" alt="Red Dot"><b>4</b></li>
+                <li><img src="assets/interaction/icons/award-if.png" alt="iF"><b>3</b></li>
+                <li><img src="assets/interaction/icons/award-idea.png" alt="IDEA"><b>2</b></li>
+                <li><img src="assets/interaction/icons/award-adesign.png" alt="A' Design"><b>3</b></li>
+              </ul>
+            </section>
+            <section>
+              <h2>Publication</h2>
+              <ul><li><img src="assets/interaction/icons/publication-design-studies.png" alt="Design Studies"><b>1</b></li></ul>
+            </section>
+          </aside>
+          <div class="winged-award winged-red-dot" aria-hidden="true"><img src="assets/interaction/icons/award-red-dot.png" alt=""></div>
+          <div class="winged-award winged-if" aria-hidden="true"><img src="assets/interaction/icons/award-if.png" alt=""></div>
+          <div class="escape-target escape-chi" aria-label="Running CHI"></div>
+          <div class="escape-target escape-uist" aria-label="Running UIST"></div>
+          <div class="escape-target escape-dis" aria-label="Running CSCW"><span>CSCW</span><i aria-hidden="true"></i><i aria-hidden="true"></i></div>
+          <div class="pixel-player" id="pixelPlayer" aria-label="追赶途中摔倒并流泪的像素人物"></div>
+          <div class="pixel-tears" id="pixelTears" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="pixel-scene-caption" id="pixelSceneCaption" aria-live="polite"></div>
+          <div class="escape-iris" id="escapeIris" aria-hidden="true"></div>
+          <video class="home-showcase-video home-poemcraft-video" muted playsinline preload="auto" aria-label="PoemCraft 交互展示">
             <source src="assets/interaction/video/poemcraft.mp4?v=2" type="video/mp4">
           </video>
           <video class="home-showcase-video" muted playsinline preload="auto" aria-label="山水交互展示">
             <source src="assets/interaction/video/showcase-second.mp4" type="video/mp4">
+          </video>
+          <video class="home-showcase-video" muted playsinline preload="auto" aria-label="篆刻交互展示">
+            <source src="assets/interaction/video/seal-carving.mp4" type="video/mp4">
           </video>
         </div>
       </section>
@@ -135,14 +160,14 @@
           <div><p>Design Practice</p><h2>设计实践</h2></div>
           <ul class="filter-list" id="practiceFilters" aria-label="设计实践筛选">
             <li><button class="filter-button active" type="button" data-filter="all">全部</button></li>
-            <li><button class="filter-button" type="button" data-filter="ux">交互设计</button></li>
-            <li><button class="filter-button" type="button" data-filter="industrial">工业设计</button></li>
-            <li><button class="filter-button" type="button" data-filter="graphic">平面设计</button></li>
-            <li><button class="filter-button" type="button" data-filter="sketch">手绘</button></li>
+            <li><button class="filter-button" type="button" data-filter="heritage">非遗与文化</button></li>
+            <li><button class="filter-button" type="button" data-filter="ai">AI 产品</button></li>
+            <li><button class="filter-button" type="button" data-filter="other">其他</button></li>
           </ul>
         </div>
         <div class="practice-grid" id="practiceGrid"></div>
       </section>
+
       </div>
     </main>
 

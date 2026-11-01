@@ -45,12 +45,12 @@ button,a { color:inherit; }
 .score-icon-text { border:2px solid currentColor; font:7px/1 "Pixer",monospace; text-shadow:none; }
 .score-icon-ds { font-size:6px; }
 .pixel-scoreboard b { font-weight:400; }
-.pixel-player { --player-size:clamp(118px,12vw,184px); position:absolute; z-index:6; left:12%; bottom:var(--runner-ground); width:var(--player-size); aspect-ratio:220/210; background-image:url('assets/interaction/escape-8bit/player-run-v8-raised.png'); background-repeat:no-repeat; background-size:600% 100%; background-position:0 0; image-rendering:pixelated; transform:translateX(var(--runner-shift,0px)); transform-origin:50% 100%; animation:escape-run .6s steps(1,end) infinite; will-change:transform,background-position; }
+.pixel-player { --player-size:clamp(124px,11vw,174px); position:absolute; z-index:6; left:12%; bottom:var(--runner-ground); width:var(--player-size); aspect-ratio:362/500; background-image:url('assets/interaction/escape-8bit/player-run-v2.png'); background-repeat:no-repeat; background-size:600% 100%; background-position:0 0; image-rendering:pixelated; transform:translateX(var(--runner-shift,0px)); transform-origin:50% 100%; animation:escape-run .6s steps(1,end) infinite; will-change:transform,background-position; }
 .escape-target { --target-height:clamp(62px,6vw,92px); position:absolute; z-index:5; bottom:var(--runner-ground); height:var(--target-height); background-color:transparent; background-repeat:no-repeat; background-size:600% 100%; background-position:0 0; image-rendering:pixelated; transform:translateX(var(--runner-shift,0px)); transform-origin:50% 100%; animation:escape-run .55s steps(1,end) infinite; will-change:transform,background-position; }
 .escape-chi { left:28%; width:calc(var(--target-height) / 2); background-image:url('assets/interaction/escape-8bit/chi-run-restored.png'); transform:translateX(var(--runner-shift,0px)) scale(2.45); transform-origin:50% 50%; }
 .escape-uist { left:38%; width:calc(var(--target-height) * 1.5); background-image:url('assets/interaction/escape-8bit/uist-run-v2.png'); transform:translateX(var(--runner-shift,0px)) scale(.9); transform-origin:50% 50%; animation-delay:-.18s; }
 .escape-dis { left:51%; bottom:calc(var(--runner-ground) + 3%); width:calc(var(--target-height) * 1.25); color:#f7f7f4; background:none; transform:translateX(var(--runner-shift,0px)); animation:none; filter:drop-shadow(3px 3px 0 rgba(58,65,73,.35)); }
-.escape-dis span { position:absolute; z-index:2; top:12%; left:50%; color:#f7f7f4; background:transparent; font:clamp(29px,3vw,44px)/1 "Pixer",monospace; letter-spacing:.02em; text-shadow:-2px 0 #747c83,0 2px #747c83,2px 0 #747c83,0 -2px #747c83,2px 2px 0 #929aa1; transform:translateX(-50%); white-space:nowrap; }
+.escape-dis span { position:absolute; z-index:2; top:12%; left:50%; color:#f7f7f4; background:transparent; font:clamp(29px,3vw,44px)/1 "Pixer",monospace; letter-spacing:-.06em; text-shadow:-2px 0 #747c83,0 2px #747c83,2px 0 #747c83,0 -2px #747c83,2px 2px 0 #929aa1; transform:translateX(-50%) scaleX(.84); transform-origin:50% 50%; white-space:nowrap; }
 .escape-dis i { position:absolute; z-index:1; bottom:-3%; left:43%; width:9px; height:45%; background:#edf0f1; box-shadow:inset -3px 0 0 #858d94,0 3px 0 #6f7780; transform-origin:50% 0; animation:dis-leg-run .3s steps(1,end) infinite; }
 .escape-dis i:last-child { left:57%; animation-delay:-.15s; }
 .winged-award { position:absolute; z-index:5; left:104%; width:84px; height:34px; background:transparent; image-rendering:pixelated; will-change:left,top,opacity; }
@@ -343,6 +343,7 @@ footer p:last-child { justify-self:end; color:#8b8982; font-size:10px; letter-sp
 @media (max-width:700px) {
   .home-page { padding-top:62px; }
   .header-sections { gap:16px; }
+  .header-sections .nav-en { display:none; }
   .header-sections a { font-size:10px; }
   .profile-zone { height:auto; margin:22px 4vw 0; padding:30px; grid-template-columns:1fr; gap:42px; }
   .profile-details { grid-template-columns:1fr; gap:36px; }
@@ -497,8 +498,33 @@ footer p:last-child { justify-self:end; color:#8b8982; font-size:10px; letter-sp
   .education-list li > div:last-child > p { grid-column:1; grid-row:auto; }
 }
 
-/* Prerendered intro: plays once and holds on the final black frame. */
-#pixelStage { background:#000; height:auto; min-height:0; aspect-ratio:1280/440; }
-.home-intro-video { display:block; width:100%; height:100%; object-fit:cover; background:#000; }
-.home-showcase-video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; pointer-events:none; }
+/* Live pixel chase: run, fall, cry, then close the iris. */
+#pixelStage { --player-shift:0px; --target-shift:0px; background:#21a7e8; }
+#pixelStage .pixel-player { background-image:url('assets/interaction/escape-8bit/player-run-v3.png'); transform:translateX(var(--player-shift)); }
+#pixelStage .escape-target { transform:translateX(var(--target-shift)); }
+#pixelStage .escape-chi { transform:translateX(var(--target-shift)) scale(2.45); }
+#pixelStage .escape-uist { transform:translateX(var(--target-shift)) scale(.9); }
+#pixelStage .pixel-player.is-falling,
+#pixelStage .pixel-player.is-fallen { background-image:url('assets/interaction/escape-8bit/player-fall-v3.png'); background-size:600% 100%; transform:translateX(var(--player-shift)); }
+#pixelStage .pixel-player.is-falling { animation:player-fall 1s steps(1,end) forwards; }
+#pixelStage .pixel-player.is-fallen { animation:none; background-position:100% 0; }
+.pixel-tears { position:absolute; z-index:16; display:flex; gap:4px; opacity:0; pointer-events:none; }
+.pixel-tears.is-visible { opacity:1; }
+.pixel-tears i { width:7px; height:11px; background:#49bfff; box-shadow:0 5px 0 #147fc5; animation:pixel-tear .7s steps(3,end) infinite; }
+.pixel-tears i:nth-child(2) { animation-delay:-.23s; }
+.pixel-tears i:nth-child(3) { animation-delay:-.46s; }
+.pixel-scene-caption { position:absolute; z-index:15; color:#fff; font:clamp(15px,2vw,28px)/1 "Pixer",monospace; letter-spacing:.06em; text-shadow:3px 3px 0 #26436f; white-space:nowrap; pointer-events:none; transform:translate(-50%,-100%); }
+.escape-iris { position:absolute; z-index:30; inset:0; opacity:0; pointer-events:none; }
+.escape-iris.is-visible { opacity:1; }
+.home-showcase-video { position:absolute; z-index:31; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; visibility:hidden; pointer-events:none; background:#000; }
+.home-showcase-video.is-playing { visibility:visible; }
 .home-poemcraft-video { transform:scale(1.03); }
+@keyframes pixel-tear { 0% { transform:translateY(0); opacity:1; } 100% { transform:translateY(20px); opacity:0; } }
+@keyframes player-fall {
+  0%,16.666% { background-position-x:0; }
+  16.667%,33.333% { background-position-x:20%; }
+  33.334%,50% { background-position-x:40%; }
+  50.001%,66.666% { background-position-x:60%; }
+  66.667%,83.333% { background-position-x:80%; }
+  83.334%,100% { background-position-x:100%; }
+}
