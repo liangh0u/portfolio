@@ -8,9 +8,17 @@
     <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon/favicon-64.png" />
     <link rel="icon" href="favicon.ico" sizes="any" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+    <link rel="preload" href="assets/fonts/Pixer-Regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="assets/interaction/escape-8bit/background.png" as="image" />
+    <link rel="preload" href="assets/interaction/title/welcome-title-yellow-blue.png" as="image" />
+    <link rel="preload" href="assets/interaction/escape-8bit/player-run-v3.png" as="image" />
+    <link rel="preload" href="assets/interaction/escape-8bit/player-fall-v3.png" as="image" />
+    <link rel="preload" href="assets/interaction/escape-8bit/chi-run-restored.png" as="image" />
+    <link rel="preload" href="assets/interaction/escape-8bit/uist-run-v2.png" as="image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" /></noscript>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="home-page">
@@ -31,7 +39,8 @@
     <main id="top">
       <div class="home-wrap">
       <section class="interaction-zone" aria-label="HOU 像素追赶动画">
-        <div class="pixel-stage" id="pixelStage">
+        <div class="pixel-stage is-loading" id="pixelStage" aria-busy="true">
+          <div class="scene-loader" role="status"><span>Loading</span><i aria-hidden="true"></i></div>
           <div class="escape-background" aria-hidden="true"></div>
           <img class="escape-title" src="assets/interaction/title/welcome-title-yellow-blue.png" alt="Welcome to my website">
           <aside class="pixel-scoreboard" aria-label="Achievement scoreboard">
@@ -58,16 +67,16 @@
           <div class="pixel-tears" id="pixelTears" aria-hidden="true"><i></i><i></i><i></i></div>
           <div class="pixel-scene-caption" id="pixelSceneCaption" aria-live="polite"></div>
           <div class="escape-iris" id="escapeIris" aria-hidden="true"></div>
-          <video class="home-showcase-video home-poemcraft-video" muted playsinline preload="auto" aria-label="PoemCraft 交互展示">
+          <video class="home-showcase-video home-poemcraft-video" muted playsinline preload="none" aria-label="PoemCraft 交互展示">
             <source src="assets/interaction/video/poemcraft.mp4?v=2" type="video/mp4">
           </video>
-          <video class="home-showcase-video" muted playsinline preload="auto" aria-label="山水交互展示">
+          <video class="home-showcase-video" muted playsinline preload="none" aria-label="山水交互展示">
             <source src="assets/interaction/video/showcase-second.mp4" type="video/mp4">
           </video>
-          <video class="home-showcase-video" muted playsinline preload="auto" aria-label="篆刻交互展示">
+          <video class="home-showcase-video" muted playsinline preload="none" aria-label="篆刻交互展示">
             <source src="assets/interaction/video/seal-carving.mp4" type="video/mp4">
           </video>
-          <video class="home-showcase-video" muted playsinline preload="auto" aria-label="非遗设计卡牌展示">
+          <video class="home-showcase-video" muted playsinline preload="none" aria-label="非遗设计卡牌展示">
             <source src="assets/interaction/video/cards-home.mp4" type="video/mp4">
           </video>
         </div>

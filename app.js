@@ -184,9 +184,48 @@ const pixelSceneCaption = document.querySelector('#pixelSceneCaption');
 const showcaseVideos = [...document.querySelectorAll('.home-showcase-video')];
 let restartPixelScene;
 
+const sceneAssetUrls = [
+  'assets/interaction/escape-8bit/background.png',
+  'assets/interaction/title/welcome-title-yellow-blue.png',
+  'assets/interaction/escape-8bit/player-run-v3.png',
+  'assets/interaction/escape-8bit/player-fall-v3.png',
+  'assets/interaction/escape-8bit/chi-run-restored.png',
+  'assets/interaction/escape-8bit/uist-run-v2.png',
+  'assets/interaction/icons/award-red-dot.png',
+  'assets/interaction/icons/award-if.png',
+  'assets/interaction/icons/award-idea.png',
+  'assets/interaction/icons/award-adesign.png',
+  'assets/interaction/icons/publication-design-studies.png'
+];
+
+function loadSceneAsset(url) {
+  return new Promise(resolve => {
+    const image = new Image();
+    const finish = () => {
+      if (image.decode) {
+        image.decode().catch(() => {}).finally(resolve);
+      } else {
+        resolve();
+      }
+    };
+    image.addEventListener('load', finish, { once:true });
+    image.addEventListener('error', resolve, { once:true });
+    image.src = url;
+  });
+}
+
+function prepareShowcase(index) {
+  const video = showcaseVideos[index];
+  if (!video || video.dataset.prepared) return;
+  video.dataset.prepared = 'true';
+  video.preload = 'auto';
+  video.load();
+}
+
 function playShowcase(index) {
   const video = showcaseVideos[index];
   if (!video) return;
+  prepareShowcase(index);
   video.currentTime = 0;
   video.play().catch(() => {
     document.addEventListener('pointerdown', () => video.play().catch(() => {}), { once: true });
@@ -203,6 +242,7 @@ showcaseVideos.forEach((video, index) => {
   };
   video.addEventListener('playing', () => {
     video.classList.add('is-playing');
+    prepareShowcase(index + 1);
     cancelAnimationFrame(fadeFrame);
     updateFade();
   });
@@ -225,9 +265,20 @@ if (pixelStage && pixelPlayer && escapeIris) {
     const progress = clamp(value);
     return progress * progress * (3 - 2 * progress);
   };
-  let sceneStart = performance.now();
+  let sceneStart;
   let sceneFrame;
   let showcaseStarted = false;
+  let sceneHasStarted = false;
+
+  function startPixelScene() {
+    if (sceneHasStarted) return;
+    sceneHasStarted = true;
+    pixelStage.classList.remove('is-loading');
+    pixelStage.setAttribute('aria-busy', 'false');
+    sceneStart = performance.now();
+    sceneFrame = requestAnimationFrame(animatePixelScene);
+    prepareShowcase(0);
+  }
 
   restartPixelScene = () => {
     cancelAnimationFrame(sceneFrame);
@@ -300,9 +351,12 @@ if (pixelStage && pixelPlayer && escapeIris) {
     }
   }
 
-  sceneFrame = requestAnimationFrame(animatePixelScene);
+  Promise.race([
+    Promise.allSettled(sceneAssetUrls.map(loadSceneAsset)),
+    new Promise(resolve => window.setTimeout(resolve, 8000))
+  ]).then(startPixelScene);
   window.addEventListener('resize', () => {
-    if (!sceneFrame) sceneFrame = requestAnimationFrame(animatePixelScene);
+    if (sceneHasStarted && !sceneFrame && !showcaseStarted) sceneFrame = requestAnimationFrame(animatePixelScene);
   });
 }
 
