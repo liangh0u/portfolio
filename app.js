@@ -183,6 +183,7 @@ const escapeIris = document.querySelector('#escapeIris');
 const pixelSceneCaption = document.querySelector('#pixelSceneCaption');
 const showcaseVideos = [...document.querySelectorAll('.home-showcase-video')];
 let restartPixelScene;
+let activeShowcaseIndex = -1;
 
 const sceneAssetUrls = [
   'assets/interaction/escape-8bit/background.png',
@@ -224,7 +225,12 @@ function prepareShowcase(index) {
 
 function playShowcase(index) {
   const video = showcaseVideos[index];
-  if (!video) return;
+  if (!video) {
+    window.setTimeout(() => restartPixelScene?.(), 500);
+    return;
+  }
+  activeShowcaseIndex = index;
+  pixelStage?.classList.add('is-showcase');
   prepareShowcase(index);
   video.currentTime = 0;
   video.play().catch(() => {
@@ -248,14 +254,11 @@ showcaseVideos.forEach((video, index) => {
   });
   video.addEventListener('pause', () => cancelAnimationFrame(fadeFrame));
   video.addEventListener('ended', () => {
+    if (index !== activeShowcaseIndex) return;
     cancelAnimationFrame(fadeFrame);
     video.classList.remove('is-playing');
     video.style.opacity = '0';
-    if (showcaseVideos[index + 1]) {
-      playShowcase(index + 1);
-    } else {
-      window.setTimeout(() => restartPixelScene?.(), 500);
-    }
+    playShowcase(index + 1);
   });
 });
 
@@ -291,6 +294,8 @@ if (pixelStage && pixelPlayer && escapeIris) {
     pixelPlayer.classList.remove('is-falling', 'is-fallen', 'is-crying');
     pixelTears?.classList.remove('is-visible');
     pixelSceneCaption.textContent = '';
+    activeShowcaseIndex = -1;
+    pixelStage.classList.remove('is-showcase');
     escapeIris.classList.remove('is-visible');
     escapeIris.style.background = '';
     pixelStage.style.setProperty('--player-shift', '0px');
